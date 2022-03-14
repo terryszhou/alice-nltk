@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Image, Heading, Flex, Stack, HStack, VStack, Text } from "@chakra-ui/react";
+import { Box, Image, Heading, Flex, Stack, HStack, VStack, Text, useColorModeValue as colormode } from "@chakra-ui/react";
 
 import { HeroShell } from "./HeroShell";
 import { HomeHeading } from "./HomeHeading";
@@ -13,9 +13,7 @@ export const Home = ({ visRef, visible }: PageProps) => {
 
   return (
     <HeroShell visRef={visRef} loaded={loaded}>
-      <Stack>
-        <HomeHeading />
-      </Stack>
+      <HomeHeading />
       <Box />
     </HeroShell>
   );
