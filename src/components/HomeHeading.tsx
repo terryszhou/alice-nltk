@@ -10,25 +10,36 @@ import {
   usePrefersReducedMotion,
 } from "@chakra-ui/react";
 
-import { float } from "../helpers/animations";
+import { fadeRight, float, typeWriter } from "../helpers/animations";
 
 export const HomeHeading = () => {
   const prefersReducedMotion: boolean = usePrefersReducedMotion();
   const floatAnim: string | undefined = prefersReducedMotion ? undefined : `${float} 2s infinite`;
+  const fadeRightAnim1: string | undefined = prefersReducedMotion ? undefined : `${fadeRight} 250ms 250ms forwards`;
+  const fadeRightAnim2: string | undefined = prefersReducedMotion ? undefined : `${fadeRight} 250ms 400ms forwards`;
+  const fadeRightAnim3: string | undefined = prefersReducedMotion ? undefined : `${fadeRight} 250ms 550ms forwards`;
+  const typeWriterAnim: string | undefined = prefersReducedMotion ? undefined : `${typeWriter} 1s steps(20, end) 750ms forwards`;
   const greenShadow: string = colorMode("none","drop-shadow(0 0 5px green)");
   const redShadow: string = colorMode("none","drop-shadow(0 3px 5px red) drop-shadow(0 -5px 5px goldenrod)");
 
   return (
-    <HStack marginRight={20} spacing={{ base: -10, lg: -4 }}>
+    <HStack marginRight={20} marginTop={-10} spacing={{ base: -10, lg: -4 }}>
       <Stack
         align={"center"}
         minWidth={300}
         position={"relative"}
-        spacing={-6}>
-        <Heading fontFamily={"Nunito"} fontSize={{ base: "5xl", lg: "7xl" }}>
+        spacing={{ base: -4, lg: -6 }}>
+        <Heading
+          animation={fadeRightAnim1}
+          fontFamily={"Nunito"}
+          fontSize={{ base: "5xl", lg: "7xl" }}
+          opacity={0}>
           DOWN
         </Heading>
-        <Flex paddingLeft={{ base: 20, lg: 10 }}>
+        <Flex
+          animation={fadeRightAnim2}
+          opacity={0}
+          paddingLeft={{ base: 20, lg: 10 }}>
           <Text
             fontFamily={"Nunito"}
             fontSize={{ base: "2xl", lg: "3xl" }}
@@ -36,17 +47,23 @@ export const HomeHeading = () => {
             the
           </Text>
           <Text
+            animation={typeWriterAnim}
             color={"green.500"}
             filter={greenShadow}
             fontFamily={"Chakra Petch"}
-            fontSize={{base: "4xl", lg: "6xl"}}>
+            fontSize={{base: "4xl", lg: "6xl"}}
+            overflow={"hidden"}
+            whiteSpace={"nowrap"}
+            width={"0%"}>
             {`{DATA}`}
           </Text>
         </Flex>
         <Flex
           alignItems={"flex-end"}
+          animation={fadeRightAnim3}
           bottom={{ base: "-50%", lg: "-40%" }}
           left={{ base: "25%", lg: "15%" }}
+          opacity={0}
           position={"absolute"} 
           width={"max-content"}>
           <Heading fontFamily={"Nunito"} fontSize={{ base: "7xl", lg: "8xl" }}>
