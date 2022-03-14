@@ -16,6 +16,7 @@ export const HomeHeading = () => {
   const prefersReducedMotion: boolean = usePrefersReducedMotion();
   const floatAnim: string | undefined = prefersReducedMotion ? undefined : `${float} 2s infinite`;
   const greenShadow: string = colorMode("none","drop-shadow(0 0 5px green)");
+  const redShadow: string = colorMode("none","drop-shadow(0 3px 5px red) drop-shadow(0 -5px 5px goldenrod)");
 
   return (
     <HStack marginRight={20} spacing={{ base: -10, lg: -4 }}>
@@ -69,6 +70,7 @@ export const HomeHeading = () => {
           width={{ base: 16, lg: 20 }} />
         <Image
           animation={floatAnim}
+          filter={redShadow}
           src={"/heart-logo.png"}
           width={{ base: 5, lg: 8 }} />
       </HStack>
