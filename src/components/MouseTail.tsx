@@ -1,115 +1,83 @@
-import { Heading, Stack, Text } from "@chakra-ui/react";
+import {
+  Stack,
+  Text,
+  useColorModeValue as colorMode,
+  usePrefersReducedMotion
+} from "@chakra-ui/react";
 import * as React from "react";
 
+import { myText, ogText } from "../data/mouseTail";
+import { scroll } from "../helpers/animations";
+
 export const MouseTail = () => {
+  const prefersReducedMotion: boolean = usePrefersReducedMotion();
+  const scrollAnim: string | undefined = prefersReducedMotion ? undefined : `${scroll} 1s 1.5s forwards`;
+  const [selectedText, setSelectedText] = React.useState<string[]>(myText);
+  // const timer = setTimeout(() => setSelectedText(myText), 3000);
+  // React.useEffect(() => () => clearTimeout(timer),[timer]);
+  const goldShadow: string = colorMode("none","drop-shadow(0 0 5px goldenrod)");
+  const greenShadow: string = colorMode("none","drop-shadow(0 0 5px green)");
+
   return (
     <Stack
       align={"left"}
+      animation={scrollAnim}
       fontFamily={"var(--chakra-fonts-mono)"}
       fontSize={"md"}
+      height={0}
+      overflow={"hidden"}
       spacing={0}>
-      <Text fontSize={"105%"}>"Fury said to</Text>
-      <Text fontSize={"100%"} pl={"3rem"}>a mouse, That</Text>
-      <Text fontSize={"100%"} pl={"9rem"}>he met</Text>
-      <Text fontSize={"100%"} pl={"10rem"}>in the</Text>
-      <Text fontSize={"100%"} pl={"11rem"}>house,</Text>
-      <Text fontSize={"100%"} pl={"10rem"}>'Let us'</Text>
-      <Text fontSize={"100%"} pl={"9rem"}>both go</Text>
-      <Text fontSize={"100%"} pl={"8rem"}>to law:</Text>
-      <Text fontSize={"100%"} pl={"7rem"}>I will</Text>
-      <Text fontSize={"100%"} pl={"6rem"}>prosecute</Text>
-      <Text fontSize={"90%"} pl={"6rem"}>you.—</Text>
-      <Text fontSize={"90%"} pl={"6.5rem"}>Come, I'll</Text>
-      <Text fontSize={"90%"} pl={"8rem"}>take no</Text>
-      <Text fontSize={"90%"} pl={"9rem"}>denial;</Text>
-      <Text fontSize={"90%"} pl={"11rem"}>We must</Text>
-      <Text fontSize={"90%"} pl={"13rem"}>have a</Text>
-      <Text fontSize={"90%"} pl={"15rem"}>trial:</Text>
-      <Text fontSize={"90%"} pl={"17rem"}>For</Text>
-      <Text fontSize={"80%"} pl={"15rem"}>really</Text>
-      <Text fontSize={"80%"} pl={"14.5rem"}>this</Text>
-      <Text fontSize={"80%"} pl={"15rem"}>morning</Text>
-      <Text fontSize={"80%"} pl={"17rem"}>I've</Text>
-      <Text fontSize={"80%"} pl={"15rem"}>nothing</Text>
-      <Text fontSize={"80%"} pl={"13.5rem"}>to do.'</Text>
-      <Text fontSize={"70%"} pl={"11.5rem"}>Said the</Text>
-      <Text fontSize={"70%"} pl={"11rem"}>mouse to</Text>
-      <Text fontSize={"70%"} pl={"10rem"}>the cur,</Text>
-      <Text fontSize={"70%"} pl={"10.5rem"}>'Such a</Text>
-      <Text fontSize={"70%"} pl={"12rem"}>trial,</Text>
-      <Text fontSize={"70%"} pl={"11rem"}>dear sir,</Text>
-      <Text fontSize={"70%"} pl={"9.5rem"}>With no</Text>
-      <Text fontSize={"70%"} pl={"8rem"}>jury or</Text>
-      <Text fontSize={"70%"} pl={"7rem"}>judge,</Text>
-      <Text fontSize={"70%"} pl={"8rem"}>would be</Text>
-      <Text fontSize={"70%"} pl={"9rem"}>wasting</Text>
-      <Text fontSize={"70%"} pl={"10rem"}>our breath.'</Text>
-      <Text fontSize={"60%"} pl={"12rem"}>'I'll be</Text>
-      <Text fontSize={"60%"} pl={"11.5rem"}>judge,</Text>
-      <Text fontSize={"60%"} pl={"11rem"}>I'll be</Text>
-      <Text fontSize={"60%"} pl={"10rem"}>jury,'</Text>
-      <Text fontSize={"60%"} pl={"9rem"}>Said</Text>
-      <Text fontSize={"60%"} pl={"10rem"}>cunning</Text>
-      <Text fontSize={"60%"} pl={"11rem"}>old Fury;</Text>
-      <Text fontSize={"60%"} pl={"12rem"}>'I'll try</Text>
-      <Text fontSize={"60%"} pl={"13rem"}>the whole</Text>
-      <Text fontSize={"60%"} pl={"15rem"}>cause,</Text>
-      <Text fontSize={"60%"} pl={"15rem"}>and</Text>
-      <Text fontSize={"60%"} pl={"14rem"}>condemn</Text>
-      <Text fontSize={"60%"} pl={"15rem"}>you</Text>
-      <Text fontSize={"60%"} pl={"16rem"}>to</Text>
-      <Text fontSize={"60%"} pl={"16rem"}>death.'"</Text>
-      {/* <Text>
-        {`An analysis
-        of the text of
-        "Alice's
-        Advent-
-        -ures in
-        Wonderland"
-        by Lewis
-        Carroll,
-        using
-        Python 3,
-        NumPy, Pandas,
-        Matplotlib,
-        NLTK, 
-        (or the
-        Natural
-        Language
-        Toolkit).
-        This
-        analysis
-        includes
-        data such as
-        VADER
-        Sentiment
-        analyses,
-        average
-        sentence
-        lengths
-        per chapter,
-        chunking
-        to extract
-        unique
-        named entities
-        from the text,
-        and various
-        figures to
-        visualize
-        data.
-        I made
-        this
-        project
-        to practice
-        data analysis,
-        visualization,
-        and natural
-        language
-        processing.
-        I hope
-        you
-        like it!`}
-      </Text> */}
+      <Text fontSize={"105%"}>{selectedText[0]}</Text>
+      <Text fontSize={"100%"} pl={"3rem"}>{selectedText[1]}</Text>
+      <Text fontSize={"100%"} pl={"9rem"} filter={goldShadow} color={"goldenrod"}>{selectedText[2]}</Text>
+      <Text fontSize={"100%"} pl={"10rem"} filter={goldShadow} color={"goldenrod"}>{selectedText[3]}</Text>
+      <Text fontSize={"100%"} pl={"11rem"} filter={goldShadow} color={"goldenrod"}>{selectedText[4]}</Text>
+      <Text fontSize={"100%"} pl={"10rem"} filter={goldShadow} color={"goldenrod"}>{selectedText[5]}</Text>
+      <Text fontSize={"100%"} pl={"9rem"}>{selectedText[6]}</Text>
+      <Text fontSize={"100%"} pl={"8rem"}>{selectedText[7]}</Text>
+      <Text fontSize={"100%"} pl={"7rem"}>{selectedText[8]}</Text>
+      <Text fontSize={"100%"} pl={"6rem"} filter={greenShadow} color={"green.500"}>{selectedText[9]}</Text>
+      <Text fontSize={"90%"} pl={"6rem"} filter={greenShadow} color={"green.500"}>{selectedText[10]}</Text>
+      <Text fontSize={"90%"} pl={"6.5rem"} filter={greenShadow} color={"green.500"}>{selectedText[11]}</Text>
+      <Text fontSize={"90%"} pl={"8rem"} filter={greenShadow} color={"green.500"}>{selectedText[12]}</Text>
+      <Text fontSize={"90%"} pl={"9rem"}>{selectedText[13]}</Text>
+      <Text fontSize={"90%"} pl={"11rem"}>{selectedText[14]}</Text>
+      <Text fontSize={"90%"} pl={"13rem"}>{selectedText[15]}</Text>
+      <Text fontSize={"90%"} pl={"15rem"}>{selectedText[16]}</Text>
+      <Text fontSize={"90%"} pl={"17rem"}>{selectedText[17]}</Text>
+      <Text fontSize={"80%"} pl={"15rem"}>{selectedText[18]}</Text>
+      <Text fontSize={"80%"} pl={"14.5rem"}>{selectedText[19]}</Text>
+      <Text fontSize={"80%"} pl={"15rem"}>{selectedText[20]}</Text>
+      <Text fontSize={"80%"} pl={"17rem"} filter={greenShadow} color={"green.500"}>{selectedText[21]}</Text>
+      <Text fontSize={"80%"} pl={"15rem"} filter={greenShadow} color={"green.500"}>{selectedText[22]}</Text>
+      <Text fontSize={"80%"} pl={"13.5rem"} filter={greenShadow} color={"green.500"}>{selectedText[23]}</Text>
+      <Text fontSize={"70%"} pl={"11.5rem"}>{selectedText[24]}</Text>
+      <Text fontSize={"70%"} pl={"11rem"}>{selectedText[25]}</Text>
+      <Text fontSize={"70%"} pl={"10rem"}>{selectedText[26]}</Text>
+      <Text fontSize={"70%"} pl={"10.5rem"}>{selectedText[27]}</Text>
+      <Text fontSize={"70%"} pl={"12rem"} filter={goldShadow} color={"goldenrod"}>{selectedText[28]}</Text>
+      <Text fontSize={"70%"} pl={"11rem"}>{selectedText[29]}</Text>
+      <Text fontSize={"70%"} pl={"9.5rem"} filter={goldShadow} color={"goldenrod"}>{selectedText[30]}</Text>
+      <Text fontSize={"70%"} pl={"8rem"} filter={goldShadow} color={"goldenrod"}>{selectedText[31]}</Text>
+      <Text fontSize={"70%"} pl={"7rem"}>{selectedText[32]}</Text>
+      <Text fontSize={"70%"} pl={"8rem"}>{selectedText[33]}</Text>
+      <Text fontSize={"70%"} pl={"9rem"}>{selectedText[34]}</Text>
+      <Text fontSize={"70%"} pl={"10rem"}>{selectedText[35]}</Text>
+      <Text fontSize={"60%"} pl={"12rem"}>{selectedText[36]}</Text>
+      <Text fontSize={"60%"} pl={"11.5rem"}>{selectedText[37]}</Text>
+      <Text fontSize={"60%"} pl={"11rem"}>{selectedText[38]}</Text>
+      <Text fontSize={"60%"} pl={"10rem"}>{selectedText[39]}</Text>
+      <Text fontSize={"60%"} pl={"9rem"}>{selectedText[40]}</Text>
+      <Text fontSize={"60%"} pl={"10rem"} filter={goldShadow} color={"goldenrod"}>{selectedText[41]}</Text>
+      <Text fontSize={"60%"} pl={"11rem"} filter={goldShadow} color={"goldenrod"}>{selectedText[42]}</Text>
+      <Text fontSize={"60%"} pl={"12rem"} filter={goldShadow} color={"goldenrod"}>{selectedText[43]}</Text>
+      <Text fontSize={"60%"} pl={"13rem"} filter={goldShadow} color={"goldenrod"}>{selectedText[44]}</Text>
+      <Text fontSize={"60%"} pl={"15rem"} filter={goldShadow} color={"goldenrod"}>{selectedText[45]}</Text>
+      <Text fontSize={"60%"} pl={"15rem"}>{selectedText[46]}</Text>
+      <Text fontSize={"60%"} pl={"14rem"}>{selectedText[47]}</Text>
+      <Text fontSize={"60%"} pl={"15rem"}>{selectedText[48]}</Text>
+      <Text fontSize={"60%"} pl={"16rem"}>{selectedText[49]}</Text>
+      <Text fontSize={"60%"} pl={"16rem"}>{selectedText[50]}</Text>
     </Stack>
   );
 };

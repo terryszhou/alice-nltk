@@ -36,3 +36,13 @@ export const typeWriter: string = keyframes`
     border-right: 0.25em transparent;
   }
 `;
+
+export const scroll: string = keyframes`
+  from {
+    height: 0%;
+    opacity: 0;
+  } to {
+    height: 100%;
+    opacity: 1;
+  }
+`;
