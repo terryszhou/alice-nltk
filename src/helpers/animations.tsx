@@ -24,7 +24,7 @@ export const fadeRight: string = keyframes`
 export const typeWriter: string = keyframes`
   0% {
     width: 0%;
-    border-right: 0;
+    border-right: 0.25em transparent;
   } 10% {
     width: 0%;
     border-right: 0.25em solid;
@@ -33,6 +33,6 @@ export const typeWriter: string = keyframes`
     border-right: 0.25em solid;
   } 100% {
     width: 100%;
-    border-right: 0;
+    border-right: 0.25em transparent;
   }
 `;
