@@ -1,10 +1,12 @@
+import * as React from "react";
 import {
   ChakraProvider,
   theme,
-} from "@chakra-ui/react"
-import * as React from "react"
+} from "@chakra-ui/react";
 
-import { ColorModeSwitcher } from "./ColorModeSwitcher"
+import "./App.css";
+import { ColorModeSwitcher } from "./ColorModeSwitcher";
+import { Home } from "./components/Home";
 import { useOnScreen } from "./hooks/useOnScreen";
 
 export const App = () => {
@@ -13,6 +15,7 @@ export const App = () => {
   return (
     <ChakraProvider theme={theme}>
       <ColorModeSwitcher justifySelf="flex-end" />
+      <Home visRef={visRef} visible={visible} />
     </ChakraProvider>
   );
 };

@@ -1,3 +1,4 @@
+import * as React from "react";
 import {
   Box,
   Container,
@@ -7,22 +8,20 @@ import {
   Text,
   useColorModeValue as uCMV, 
 } from '@chakra-ui/react';
-import * as React from "react";
 
 interface HeroShellProps {
+  visRef?: any,
   children?: any,
-  label?: string,
-  loaded?: boolean | React.Dispatch<any> | React.MutableRefObject<any>,
+  title?: string
+  loaded?: boolean,
 };
 
-export const HeroShell = ({ children, label, loaded }: HeroShellProps) => {
-  const number: string = label?.split(".")[0] + "."
-  const title: string = " " + label?.split(".")[1]
-
+export const HeroShell = ({ title, visRef, children, loaded }: HeroShellProps) => {
   return (
     <Container
       maxW={{ base: "95%", sm: "85%", lg: "80%", xl: "70%" }}
       opacity={loaded ? 1 : 0}
+      ref={visRef}
       transition={"500ms ease-out"}>
       <Stack
         align={'center'}
@@ -32,33 +31,12 @@ export const HeroShell = ({ children, label, loaded }: HeroShellProps) => {
         spacing={{ base: 8, md: 10 }}>
         <Stack flex={2} spacing={{ base: 5, md: 10 }} position={"relative"}>
           <Stack position={"relative"} spacing={3}>
-            <Box 
-              backgroundColor={"goldenrod"}
-              boxShadow={uCMV("none","0 0 5px goldenrod")}
-              height={2}
-              opacity={0}
-              position={"absolute"}
-              top={"2%"}
-              width={0}
-              _after={{
-                borderTop: "8px solid goldenrod",
-                borderRight: "8px solid transparent",
-                content: `""`,
-                filter: uCMV("none","drop-shadow(2px 0 5px goldenrod)"),
-                position: "absolute",
-                right: -2,
-                width: 0 }} />
-              <Heading
-                fontFamily={"var(--chakra-fonts-mono)"}
-                fontSize={{ base: 'lg', sm: 'xl', md: "2xl" }}
-                fontWeight={"bold"}>
-                <Text 
-                  as={"span"}
-                  color={"goldenrod"}
-                  textShadow={uCMV("none","0 0 5px goldenrod")}>
-                  {number}
-                </Text>{title}
-              </Heading>
+            <Heading
+              fontFamily={"var(--chakra-fonts-mono)"}
+              fontSize={{ base: 'lg', sm: 'xl', md: "2xl" }}
+              fontWeight={"bold"}>
+              {title}
+            </Heading>
           </Stack>
           <Flex
             align={'center'}
