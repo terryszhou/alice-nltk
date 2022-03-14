@@ -7,15 +7,18 @@ import {
 import "./App.css";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { Home } from "./components/Home";
+import { AboutNLTK } from "./components/AboutNLTK";
 import { useOnScreen } from "./hooks/useOnScreen";
 
 export const App = () => {
   const [visRef, visible]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
+  const [visRef2, visible2]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
 
   return (
     <ChakraProvider theme={theme}>
       <ColorModeSwitcher justifySelf="flex-end" />
       <Home visRef={visRef} visible={visible} />
+      <AboutNLTK visRef={visRef2} visible={visible2} />
     </ChakraProvider>
   );
 };
