@@ -1,8 +1,16 @@
-import { Image, Box, Flex, Stack, Text, List, ListItem, ListIcon, useColorModeValue as colorMode } from "@chakra-ui/react";
 import * as React from "react";
+import {
+  Image,
+  Box,
+  Flex,
+  Stack,
+  Text,
+  List,
+  ListItem,
+  useColorModeValue as colorMode
+} from "@chakra-ui/react";
 
-import { BsFillSuitHeartFill } from "react-icons/bs";
-
+import { aboutNLTKData } from "../data/aboutNLTKData";
 import { HeroShell } from "./HeroShell";
 import { PageProps } from "../helpers/interfaces";
 
@@ -23,36 +31,18 @@ export const AboutNLTK = ({ visRef, visible }: PageProps) => {
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
           </Text>
           <List spacing={2}>
-            <ListItem
-              alignItems={"center"}
-              color={colorMode("rgba(44,44,44,0.8)","rgba(180,180,180,0.8)")}
-              display={"flex"}
-              fontFamily={"var(--chakra-fonts-nunito)"}>
-              <Image src={"/heart-logo.png"} width={4} />
-              <Text marginLeft={2} marginTop={2}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-              </Text>
-            </ListItem>
-            <ListItem
-              alignItems={"center"}
-              color={colorMode("rgba(44,44,44,0.8)","rgba(180,180,180,0.8)")}
-              display={"flex"}
-              fontFamily={"var(--chakra-fonts-nunito)"}>
-              <Image src={"/heart-logo.png"} width={4} />
-              <Text marginLeft={2} marginTop={2}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-              </Text>
-            </ListItem>
-            <ListItem
-              alignItems={"center"}
-              color={colorMode("rgba(44,44,44,0.8)","rgba(180,180,180,0.8)")}
-              display={"flex"}
-              fontFamily={"var(--chakra-fonts-nunito)"}>
-              <Image src={"/heart-logo.png"} width={4} />
-              <Text marginLeft={2} marginTop={2}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-              </Text>
-            </ListItem>
+            {aboutNLTKData.map((e, i) => (
+              <ListItem
+                alignItems={"center"}
+                color={colorMode("rgba(44,44,44,0.8)","rgba(180,180,180,0.8)")}
+                display={"flex"}
+                fontFamily={"var(--chakra-fonts-nunito)"}
+                key={i}>
+                <Image src={"/heart-logo.png"} width={4} />
+                <Text marginLeft={2} marginY={2}>
+                  {e}
+                </Text>
+              </ListItem> ))}
           </List>
         </Stack>
       </Box>
