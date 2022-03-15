@@ -19,7 +19,7 @@ export const HomeHeading = () => {
   const fadeRightAnim2: string | undefined = prefersReducedMotion ? undefined : `${fadeRight} 250ms 400ms forwards`;
   const fadeRightAnim3: string | undefined = prefersReducedMotion ? undefined : `${fadeRight} 250ms 550ms forwards`;
   const typeWriterAnim: string | undefined = prefersReducedMotion ? undefined : `${typeWriter} 1s steps(20, end) 750ms forwards`;
-  const greenShadow: string = colorMode("none","drop-shadow(0 0 5px green)");
+  const purpleShadow: string = colorMode("none","drop-shadow(0 0 5px rgb(159,43,122))");
   const redShadow: string = colorMode("none","drop-shadow(0 3px 5px red) drop-shadow(0 -5px 5px goldenrod)");
 
   return (
@@ -49,8 +49,8 @@ export const HomeHeading = () => {
           <Text
             animation={typeWriterAnim}
             borderRight={"0.25em solid rgba(0,0,0,0)"}
-            color={"green.500"}
-            filter={greenShadow}
+            color={"rgb(159,43,122)"}
+            filter={purpleShadow}
             fontFamily={"Chakra Petch"}
             fontSize={{base: "4xl", lg: "6xl"}}
             opacity={"100%"}

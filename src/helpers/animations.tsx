@@ -27,10 +27,10 @@ export const typeWriter: string = keyframes`
     border-right: 0.25em solid rgba(0,0,0,0);
   } 10% {
     width: 0%;
-    border-right: 0.25em solid green;
+    border-right: 0.25em solid rgb(159,43,122);
   } 90% {
     width: 100%;
-    border-right: 0.25em solid green;
+    border-right: 0.25em solid rgb(159,43,122);
   } 100% {
     width: 100%;
     border-right: 0.25em solid rgba(0,0,0,0);
