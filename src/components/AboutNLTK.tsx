@@ -22,41 +22,36 @@ export const AboutNLTK = ({ visRef, visible }: PageProps) => {
           <Text>
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
           </Text>
-          <List>
+          <List spacing={2}>
             <ListItem
+              alignItems={"center"}
               color={colorMode("rgba(44,44,44,0.8)","rgba(180,180,180,0.8)")}
               display={"flex"}
-              fontFamily={"var(--chakra-fonts-nunito)"}
-              fontSize={"lg"}
-              marginY={2}>
-              <ListIcon
-                as={BsFillSuitHeartFill}
-                color='green.500'
-                marginTop={1} />
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+              fontFamily={"var(--chakra-fonts-nunito)"}>
+              <Image src={"/heart-logo.png"} width={4} />
+              <Text marginLeft={2} marginTop={2}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+              </Text>
             </ListItem>
             <ListItem
+              alignItems={"center"}
               color={colorMode("rgba(44,44,44,0.8)","rgba(180,180,180,0.8)")}
               display={"flex"}
-              fontFamily={"var(--chakra-fonts-nunito)"}
-              fontSize={"lg"}
-              marginY={2}>
-              <ListIcon
-                as={BsFillSuitHeartFill}
-                color='green.500'
-                marginTop={1} />
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+              fontFamily={"var(--chakra-fonts-nunito)"}>
+              <Image src={"/heart-logo.png"} width={4} />
+              <Text marginLeft={2} marginTop={2}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+              </Text>
             </ListItem>
             <ListItem
+              alignItems={"center"}
               color={colorMode("rgba(44,44,44,0.8)","rgba(180,180,180,0.8)")}
               display={"flex"}
-              fontFamily={"var(--chakra-fonts-nunito)"}
-              marginY={2}>
-              <ListIcon
-                as={BsFillSuitHeartFill}
-                color='green.500'
-                marginTop={1} />
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+              fontFamily={"var(--chakra-fonts-nunito)"}>
+              <Image src={"/heart-logo.png"} width={4} />
+              <Text marginLeft={2} marginTop={2}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+              </Text>
             </ListItem>
           </List>
         </Stack>
