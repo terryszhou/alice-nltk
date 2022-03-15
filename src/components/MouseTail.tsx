@@ -1,4 +1,5 @@
 import {
+  Box,
   Stack,
   Text,
   useColorModeValue as colorMode,
@@ -11,7 +12,8 @@ import { scroll } from "../helpers/animations";
 
 export const MouseTail = () => {
   const prefersReducedMotion: boolean = usePrefersReducedMotion();
-  const scrollAnim: string | undefined = prefersReducedMotion ? undefined : `${scroll} 1s 1.5s forwards`;
+  const scrollAnim: string | undefined =
+    prefersReducedMotion ? undefined : `${scroll} 3s 1.5s forwards`;
   const [selectedText, setSelectedText] = React.useState<string[]>(myText);
   // const timer = setTimeout(() => setSelectedText(myText), 3000);
   // React.useEffect(() => () => clearTimeout(timer),[timer]);
@@ -24,7 +26,7 @@ export const MouseTail = () => {
       animation={scrollAnim}
       fontFamily={"var(--chakra-fonts-mono)"}
       fontSize={"md"}
-      height={0}
+      maxHeight={0}
       overflow={"hidden"}
       spacing={0}>
       <Text fontSize={"105%"}>{selectedText[0]}</Text>

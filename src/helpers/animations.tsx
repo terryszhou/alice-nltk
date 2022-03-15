@@ -24,25 +24,25 @@ export const fadeRight: string = keyframes`
 export const typeWriter: string = keyframes`
   0% {
     width: 0%;
-    border-right: 0.25em transparent;
+    border-right: 0.25em solid rgba(0,0,0,0);
   } 10% {
     width: 0%;
-    border-right: 0.25em solid;
+    border-right: 0.25em solid green;
   } 90% {
     width: 100%;
-    border-right: 0.25em solid;
+    border-right: 0.25em solid green;
   } 100% {
     width: 100%;
-    border-right: 0.25em transparent;
+    border-right: 0.25em solid rgba(0,0,0,0);
   }
 `;
 
 export const scroll: string = keyframes`
   from {
-    height: 0%;
+    max-height: 0px;
     opacity: 0;
   } to {
-    height: 100%;
+    max-height: 1000px;
     opacity: 1;
   }
 `;

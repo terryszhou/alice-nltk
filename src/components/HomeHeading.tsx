@@ -48,10 +48,12 @@ export const HomeHeading = () => {
           </Text>
           <Text
             animation={typeWriterAnim}
+            borderRight={"0.25em solid rgba(0,0,0,0)"}
             color={"green.500"}
             filter={greenShadow}
             fontFamily={"Chakra Petch"}
             fontSize={{base: "4xl", lg: "6xl"}}
+            opacity={"100%"}
             overflow={"hidden"}
             whiteSpace={"nowrap"}
             width={"0%"}>
