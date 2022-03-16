@@ -23,7 +23,7 @@ export const HeroShell = ({ title, visRef, children, loaded }: HeroShellProps) =
       minHeight={{ base: "none", lg: "100vh" }}
       opacity={loaded ? 1 : 0}
       ref={visRef}
-      transition={"500ms ease-out"}>
+      transition={"500ms 200ms ease-out"}>
       <Stack
         align={'center'}
         direction={{ base: 'column', md: 'row' }}
