@@ -7,7 +7,8 @@ import {
   Text,
   List,
   ListItem,
-  useColorModeValue as colorMode
+  useColorModeValue as colorMode,
+  Heading
 } from "@chakra-ui/react";
 
 import { aboutNLTKData } from "../data/aboutNLTKData";
@@ -28,7 +29,10 @@ export const AboutNLTK = ({ visRef, visible }: PageProps) => {
           fontSize={{ base: "sm", lg: "md" }}
           textAlign={"justify"}>
           <Text>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            Natural Language Processing, or NLP, is a computer's ability to understand spoken and written language as humans do. It's a cornerstone of AI, and has deep roots in data analysis and algorithms. 
+          </Text>
+          <Text>
+            For this project, I'll be using the Natural Language Toolkit, or NLTK: a top platform for Python-based NLP. There are three submodules of the NLTK library that are the focus of this project:
           </Text>
           <List spacing={2}>
             {aboutNLTKData.map((e, i) => (
@@ -44,6 +48,9 @@ export const AboutNLTK = ({ visRef, visible }: PageProps) => {
                 </Text>
               </ListItem> ))}
           </List>
+          <Text>
+            But first, let's learn a little more about our text...
+          </Text>
         </Stack>
       </Box>
       <Flex
@@ -54,7 +61,6 @@ export const AboutNLTK = ({ visRef, visible }: PageProps) => {
         marginTop={"10%"}>
         <Box
           alignItems={"center"}
-          border={"2px solid goldenrod"}
           borderRadius={5}
           display={"flex"}
           justifyContent={"center"}
@@ -62,13 +68,28 @@ export const AboutNLTK = ({ visRef, visible }: PageProps) => {
           position={"relative"}
           role={"group"}
           transition={"200ms ease-out"}
-          width={"fit-content"}
-          _hover={{ backgroundColor: "goldenrod" }}>
+          width={"fit-content"}>
+          {/* <Image
+            src={"/frame.png"}
+            maxWidth={{ base: 250*1.4, lg: 350*1.4 }}
+            position={"absolute"} /> */}
           <Image
             borderRadius={5}
             maxWidth={{ base: 250, lg: 350 }}
-            src={"/natural-language-processing.png"} />
+            src={"/eaglet.jpg"} />
         </Box>
+        <Stack marginTop={5} >
+          <Heading fontFamily={"Nunito"} fontSize={"lg"} fontStyle={"italic"}>
+            “Speak English!” said the Eaglet. “I don’t know the meaning of half those long words, and, what’s more, I don’t believe you do either!”
+          </Heading>
+          <Text fontFamily={"Nunito"} fontStyle={"italic"} textAlign={"right"}>
+            - "Alice's Adventures in Wonderland"
+          </Text>
+          {`, `}
+          <Text fontFamily={"Nunito"} fontWeight={"bold"} textAlign={"right"}>
+            Chapter III: A Caucus-Race and a Long Tale
+          </Text>
+        </Stack>
       </Flex>
     </HeroShell>
   );
