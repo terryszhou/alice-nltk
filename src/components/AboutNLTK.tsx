@@ -74,7 +74,7 @@ export const AboutNLTK = ({ visRef, visible }: PageProps) => {
             maxWidth={{ base: 250, lg: 350 }}
             src={"/eaglet.jpg"} />
         </Box>
-        <Stack marginTop={5} >
+        <Stack marginTop={5} maxWidth={{ sm: "60%", lg: "80%" }}>
           <Heading fontFamily={"Nunito"} fontSize={"lg"} fontStyle={"italic"} textAlign={"justify"}>
             “Speak English!” said the Eaglet. “I don’t know the meaning of half those long words, and, what’s more, I don’t believe you do either!”
           </Heading>

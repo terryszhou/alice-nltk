@@ -33,7 +33,7 @@ export const Materials = ({ visRef, visible }: PageProps) => {
             maxWidth={{ base: 250, lg: 350 }}
             src={"/king.jpg"} />
         </Box>
-        <Stack marginTop={5} >
+        <Stack marginTop={5} maxWidth={{ sm: "60%", lg: "80%" }}>
           <Heading fontFamily={"Nunito"} fontSize={"lg"} fontStyle={"italic"} textAlign={"justify"}>
             “Begin at the beginning,” the King said gravely, “and go on till you come to the end: then stop.”
           </Heading>
@@ -73,7 +73,7 @@ export const Materials = ({ visRef, visible }: PageProps) => {
           alice.txt
         </Button>
         <Text>The following are all the code imports used in this project:</Text>
-        <Stack textAlign={"left"} width={"80%"}>
+        <Stack opacity={.8} textAlign={"left"} width={"80%"}>
           <Code children={"import matplotlib.pyplot as plt"} />
           <Code children={"import pandas as pd"} />
           <Code children={"import seaborn as sns"} />

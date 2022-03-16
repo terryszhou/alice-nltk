@@ -20,6 +20,7 @@ export const HeroShell = ({ title, visRef, children, loaded }: HeroShellProps) =
   return (
     <Container
       maxW={{ base: "95%", sm: "85%", lg: "80%", xl: "70%" }}
+      minHeight={{ base: "none", lg: "100vh" }}
       opacity={loaded ? 1 : 0}
       ref={visRef}
       transition={"500ms ease-out"}>
