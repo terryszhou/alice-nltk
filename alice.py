@@ -16,6 +16,7 @@ alice_text = open("alice.txt", "r").read()
 alice_sentences = nltk.sent_tokenize(alice_text)
 compound_scores = []
 
+
 for sentence in alice_sentences:
   compound_scores.append((sentence.replace("\n", " "),
   sid.polarity_scores(sentence)["compound"],
@@ -77,7 +78,7 @@ def create_alice_sid():
   # Writes dataframe to Excel file
   df.to_excel("alice.xlsx")
 
-create_alice_sid()
+# create_alice_sid()
 
 def alice_chapter_sentiment_graph():
   # Separates plt tuple into figure and axis
@@ -112,7 +113,7 @@ def alice_chapter_sentiment_graph():
   # Shows graph in terminal
   # plt.show()
 
-alice_chapter_sentiment_graph()
+# alice_chapter_sentiment_graph()
 
 def alice_overall_sent_totals():
   df['pos_score'] = np.where(df['compound_score'] >= 0.05, 1, 0)
@@ -123,7 +124,7 @@ def alice_overall_sent_totals():
   print(f"Number of overall neutral sentences is: {len(df[df['neg_score'] == 1])}")
   print(f"Number of overall negative sentences is: {len(df[df['neu_score'] == 1])}")
 
-alice_overall_sent_totals()
+# alice_overall_sent_totals()
 
 def alice_chap_sent_count_graph():
   fig, ax = plt.subplots(figsize=(15,7))
@@ -140,7 +141,7 @@ def alice_chap_sent_count_graph():
   fig.savefig("public/images/alice_chap_sent_count_graph.png")
   # plt.show()
 
-alice_chap_sent_count_graph()
+# alice_chap_sent_count_graph()
 
 def alice_chap_vader_sent_graph():
   alice_overall_sent_totals()
@@ -169,7 +170,7 @@ def alice_chap_vader_sent_graph():
   fig.savefig("public/images/alice_chap_vader_sent_graph.png")
   # plt.show()
 
-alice_chap_vader_sent_graph()
+# alice_chap_vader_sent_graph()
 
 def alice_avg_sent_length_graph():
   df['sentences_length'] = df['sentences'].apply(lambda x: len(x.split(' ')))
@@ -188,7 +189,7 @@ def alice_avg_sent_length_graph():
   fig.savefig("public/images/alice_avg_sent_length_graph.png")
   # plt.show()
 
-alice_avg_sent_length_graph()
+# alice_avg_sent_length_graph()
 
 def get_chunks(text):
   entities = nltk.ne_chunk(nltk.pos_tag(nltk.word_tokenize(text)))
@@ -227,7 +228,7 @@ def clean_sentences():
   df['named_entities'] = df['cleaned_sentences'].apply(lambda x: get_chunks(x))
   # print(df.loc[50]['named_entities'])
 
-clean_sentences()
+# clean_sentences()
 
 def named_entities():
   # Returns all named entities in the text and removes duplicates
@@ -254,7 +255,7 @@ def named_entities():
   df.to_excel("new_alice.xlsx")
   # print(df['Alice'].sum())
 
-named_entities()
+# named_entities()
 
 df_grouped = df.groupby('chapter', as_index=False).sum()
 
@@ -281,7 +282,7 @@ def alice_main_ne_chapter_occurrences():
   fig.savefig("public/images/alice_main_ne_chapter_occurrences.png")
   # plt.show()
 
-alice_main_ne_chapter_occurrences()
+# alice_main_ne_chapter_occurrences()
 
 colors = ["#186A3B", "#1D8348", "#239B56", "#28B463", "#2ECC71", "#58D68D", "#82E0AA", "#ABEBC6", "#D5F5E3", "#FCF3CF", "#F9E79F", "#F7DC6F"]
 top_chars = df_grouped.iloc[:,4:].sum().sort_values(ascending=False)[0:15].index.drop('neu_score')
@@ -314,7 +315,7 @@ def top_characters():
   fig.savefig("public/images/alice_top_characters.png")
   # plt.show()
 
-top_characters()
+# top_characters()
 
 def characters_by_sentiment():
   df['pos'] = np.where(df['pos_score'] > df['neg_score'], 1, 0)
@@ -338,4 +339,4 @@ def characters_by_sentiment():
   fig.savefig("public/images/alice_characters_by_sentiment.png")
   # plt.show()
 
-characters_by_sentiment()
+# characters_by_sentiment()

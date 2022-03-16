@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Stack, Heading, Text } from "@chakra-ui/react";
+import { Box, Code, Flex, Image, Stack, Heading, Text } from "@chakra-ui/react";
 import * as React from "react";
 import { HeroShell } from "./HeroShell";
 import { PageProps } from "../helpers/interfaces";
@@ -18,13 +18,20 @@ export const SentenceStructure = ({ visible, visRef }: PageProps) => {
         spacing={5}
         textAlign={"justify"}>
         <Text>
-          <Text as={"span"} fontStyle={"italic"}>Alice's Adventures in Wonderland</Text>
-          {`, or `}
-          <Text as={"span"} fontStyle={"italic"}>Alice in Wonderland </Text>
-          as it is more commonly known, is an English children's novel written in 1865 by Lewis Carroll, with illustrations by John Tenniel.
+          Tokenization is one of NLTK's most basic functionalities. It involves breaking strings down into smaller substrings, or 'tokens'. Strings can be tokenized into sentences, words, or individual characters.
         </Text>
         <Text>
-          In 1991 it was made available for free by Project Gutenberg. I will be using a slightly modified version of that text for this project, available for download below:
+          For instance, the following commands allow us to break the text down into sentences:
+        </Text>
+        <Stack textAlign={"left"} width={"80%"}>
+          <Code children={'alice_text = open("alice.txt", "r").read()'} />
+          <Code children={'alice_sentences = nltk.sent_tokenize(alice_text)'} />
+        </Stack>
+        <Text>
+          There are only 973 sentences in the text, split amongst 12 chapters. Most modern publication coaches advise an average sentence length of 14-20 words/sentence.
+        </Text>
+        <Text>
+          As we can see from the data, Alice in Wonderland's sentences average in the 40-50 word range—a far cry from modern writing styles. We can see this clearly enough from the very first sentence:
         </Text>
       </Stack>
       <Stack
