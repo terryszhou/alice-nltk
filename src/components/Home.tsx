@@ -13,12 +13,9 @@ export const Home = ({ visRef, visible }: PageProps) => {
   }, [visible]);
 
   return (
-    <HeroShell visRef={visRef} loaded={loaded}>
-      <VStack spacing={10} minHeight={"100vh"}>
-        <HomeHeading />
-        <MouseTail />
-      </VStack>
-      <Box />
-    </HeroShell>
+    <VStack spacing={10} marginTop={5} minHeight={"100vh"}>
+      <HomeHeading />
+      <MouseTail />
+    </VStack>
   );
 };

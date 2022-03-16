@@ -69,25 +69,17 @@ export const AboutNLTK = ({ visRef, visible }: PageProps) => {
           role={"group"}
           transition={"200ms ease-out"}
           width={"fit-content"}>
-          {/* <Image
-            src={"/frame.png"}
-            maxWidth={{ base: 250*1.4, lg: 350*1.4 }}
-            position={"absolute"} /> */}
           <Image
             borderRadius={5}
             maxWidth={{ base: 250, lg: 350 }}
             src={"/eaglet.jpg"} />
         </Box>
         <Stack marginTop={5} >
-          <Heading fontFamily={"Nunito"} fontSize={"lg"} fontStyle={"italic"}>
+          <Heading fontFamily={"Nunito"} fontSize={"lg"} fontStyle={"italic"} textAlign={"justify"}>
             “Speak English!” said the Eaglet. “I don’t know the meaning of half those long words, and, what’s more, I don’t believe you do either!”
           </Heading>
-          <Text fontFamily={"Nunito"} fontStyle={"italic"} textAlign={"right"}>
-            - "Alice's Adventures in Wonderland"
-          </Text>
-          {`, `}
           <Text fontFamily={"Nunito"} fontWeight={"bold"} textAlign={"right"}>
-            Chapter III: A Caucus-Race and a Long Tale
+            - Chapter III: A Caucus-Race and a Long Tale
           </Text>
         </Stack>
       </Flex>

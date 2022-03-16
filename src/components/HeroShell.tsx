@@ -29,7 +29,7 @@ export const HeroShell = ({ title, visRef, children, loaded }: HeroShellProps) =
         paddingY={18}
         paddingTop={"7.5%"}
         spacing={{ base: 8, md: 10 }}>
-        <Stack flex={2} spacing={{ base: 5, md: 10 }} position={"relative"}>
+        <Stack flex={1} spacing={{ base: 5, md: 10 }} position={"relative"}>
           <Stack position={"relative"} spacing={3}>
             <Heading
               fontFamily={"var(--chakra-fonts-mono)"}
@@ -50,7 +50,7 @@ export const HeroShell = ({ title, visRef, children, loaded }: HeroShellProps) =
         </Stack>
         <Flex
           align={'center'}
-          flex={0}
+          flex={1}
           justify={'center'}
           position={'relative'}
           w={'full'}>
