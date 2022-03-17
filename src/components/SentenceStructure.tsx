@@ -3,7 +3,8 @@ import * as React from "react";
 import { HeroShell } from "./HeroShell";
 import { PageProps } from "../helpers/interfaces";
 import { figureData } from "../data/figureData";
-import { BarChart, Bar, Label, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, Label, Cell, XAxis, YAxis, CartesianGrid, Tooltip, TooltipProps, Legend, ResponsiveContainer } from 'recharts';
+import { ValueType, NameType } from "recharts/types/component/DefaultTooltipContent";
 
 
 export const SentenceStructure = ({ visible, visRef }: PageProps) => {
@@ -45,7 +46,7 @@ export const SentenceStructure = ({ visible, visRef }: PageProps) => {
           borderRadius={5}
           maxWidth={"100%"}
           src={"/images/alice_chap_sent_count_graph.png"} />
-        <ResponsiveContainer width={"100%"} height={"100%"}>
+        <ResponsiveContainer width={"100%"} height={300}>
           <BarChart
             width={500}
             height={300}
@@ -57,7 +58,7 @@ export const SentenceStructure = ({ visible, visRef }: PageProps) => {
               bottom: 5 }}>
             <XAxis dataKey={"label"} />
             <YAxis />
-            <Tooltip />
+            <Tooltip content={<CustomTooltip />} />
             <Bar dataKey="value" fill="#8884d8" />
           </BarChart>
         </ResponsiveContainer>
@@ -70,4 +71,16 @@ export const SentenceStructure = ({ visible, visRef }: PageProps) => {
       </Stack>
     </HeroShell>
   );
+};
+
+export const CustomTooltip = ({ active, payload, label }: TooltipProps<ValueType, NameType>) => {
+  if (active && payload && payload.length) {
+    return (  
+      <Stack fontFamily={"var(--chakra-fonts-mono)"}>
+        <Code children={`Chapter ${label}`} />
+        <Code children={`${payload[0].value} sentences`} />
+      </Stack>
+    );
+  };
+  return null;
 };
