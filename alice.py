@@ -55,7 +55,7 @@ def most_polar_sentences():
     elif sent[1] == min(all_scores):
       print(f"The most negative compound score was assigned to:\n{sent}.\n")
 
-# most_polar_sentences()
+most_polar_sentences()
 
 df = pd.DataFrame(compound_scores)
 
@@ -78,7 +78,7 @@ def create_alice_sid():
   # Writes dataframe to Excel file
   # df.to_excel("alice.xlsx")
 
-create_alice_sid()
+# create_alice_sid()
 
 def alice_chapter_sentiment_graph():
   # Separates plt tuple into figure and axis

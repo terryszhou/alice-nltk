@@ -29,7 +29,7 @@ export const SentenceStructure = ({ visible, visRef }: PageProps) => {
         <Text>
           For instance, the following commands allow us to break the text down into sentences:
         </Text>
-        <Stack textAlign={"left"} width={"80%"}>
+        <Stack textAlign={"left"} width={"100%"}>
           <Code children={'alice_text = open("alice.txt", "r").read()'} />
           <Code children={'alice_sentences = nltk.sent_tokenize(alice_text)'} />
         </Stack>

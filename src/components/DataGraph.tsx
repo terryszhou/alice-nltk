@@ -1,15 +1,24 @@
 import {
-  Code, Stack,
+  Code,
+  Stack,
   useColorModeValue as colorMode,
   useDisclosure
 } from "@chakra-ui/react";
 import * as React from "react";
 
 import {
-  BarChart, Bar, XAxis, YAxis, Tooltip,
-  TooltipProps, ResponsiveContainer
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  TooltipProps,
+  ResponsiveContainer
 } from 'recharts';
-import { ValueType, NameType } from "recharts/types/component/DefaultTooltipContent";
+import {
+  ValueType,
+  NameType
+} from "recharts/types/component/DefaultTooltipContent";
 
 import { figureDataProps} from "../data/figureData";
 import { DataGraphModal } from "./DataGraphModal";

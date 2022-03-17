@@ -7,6 +7,7 @@ import { Home } from "./components/Home";
 import { AboutNLTK } from "./components/AboutNLTK";
 import { Materials } from "./components/Materials";
 import { SentenceStructure } from "./components/SentenceStructure";
+import { Vader } from "./components/Vader";
 import { useOnScreen } from "./hooks/useOnScreen";
 
 export const App = () => {
@@ -14,6 +15,7 @@ export const App = () => {
   const [visRef2, visible2]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
   const [visRef3, visible3]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
   const [visRef4, visible4]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
+  const [visRef5, visible5]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
 
   return (
     <ChakraProvider theme={theme}>
@@ -22,6 +24,7 @@ export const App = () => {
       <AboutNLTK visRef={visRef2} visible={visible2} />
       <Materials visRef={visRef3} visible={visible3} />
       <SentenceStructure visRef={visRef4} visible={visible4} />
+      <Vader visRef={visRef5} visible={visible5} />
     </ChakraProvider>
   );
 };
