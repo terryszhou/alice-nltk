@@ -1,10 +1,8 @@
-import { Code, Stack, Text, useColorModeValue as colorMode } from "@chakra-ui/react";
+import { Code, Stack, Text } from "@chakra-ui/react";
 import * as React from "react";
 
-import { BarChart, Bar, XAxis, YAxis, Tooltip, TooltipProps, ResponsiveContainer } from 'recharts';
-import { ValueType, NameType } from "recharts/types/component/DefaultTooltipContent";
-
-import { figureData } from "../data/figureData";
+import { figureDataOne } from "../data/figureData";
+import { DataGraph } from "./DataGraph";
 import { PageProps } from "../helpers/interfaces";
 import { HeroShell } from "./HeroShell";
 
@@ -44,60 +42,16 @@ export const SentenceStructure = ({ visible, visRef }: PageProps) => {
         width={"100%"}
         marginY={"10%"}
         spacing={5}>
-        <ResponsiveContainer height={300} width={"100%"}>
-          <BarChart data={figureData[0].data}>
-            <text
-              dominantBaseline="central"
-              fill={colorMode("black", "white")}
-              textAnchor="middle"
-              x={165}
-              y={5}>
-              <tspan fontFamily={"Nunito"} fontSize="14">{figureData[0].title}</tspan>
-            </text>
-            <XAxis dataKey={"label"} />
-            <YAxis />
-            <Tooltip content={<CustomTooltip valueLabel={figureData[0].valueLabel} />} cursor={false} />
-            <Bar dataKey="value" fill={figureData[0].fillColor} radius={[5, 5, 0, 0]}/>
-          </BarChart>
-        </ResponsiveContainer>
-        <ResponsiveContainer height={300} width={"100%"}>
-          <BarChart data={figureData[1].data}>
-            <text
-              dominantBaseline="central"
-              fill={colorMode("black", "white")}
-              textAnchor="middle"
-              x={165}
-              y={5}>
-              <tspan fontFamily={"Nunito"} fontSize="14">{figureData[1].title}</tspan>
-            </text>
-            <XAxis dataKey={"label"} />
-            <YAxis />
-            <Tooltip content={<CustomTooltip valueLabel={figureData[1].valueLabel} />} cursor={false} />
-            <Bar dataKey="value" fill={figureData[1].fillColor} radius={[5, 5, 0, 0]}/>
-          </BarChart>
-        </ResponsiveContainer>
+        {figureDataOne.map((e,i) => (
+          <DataGraph
+            code={e.code}
+            data={e.data}
+            fig={e.fig}
+            fillColor={e.fillColor}
+            key={i}
+            title={e.title}
+            valueLabel={e.valueLabel} /> ))}
       </Stack>
     </HeroShell>
   );
-};
-
-interface TooltipLabels {
-  valueLabel: string,
-};
-
-export const CustomTooltip = ({
-  active,
-  payload,
-  label,
-  valueLabel
-}: TooltipProps<ValueType, NameType> & TooltipLabels) => {
-  if (active && payload && payload.length) {
-    return (  
-      <Stack fontFamily={"var(--chakra-fonts-mono)"}>
-        <Code children={`Chapter ${label}`} />
-        <Code children={`${payload[0].value} ${valueLabel}`} />
-      </Stack>
-    );
-  };
-  return null;
 };

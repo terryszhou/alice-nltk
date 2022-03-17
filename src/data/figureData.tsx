@@ -1,4 +1,4 @@
-interface figureDataProps {
+export interface figureDataProps {
   fig: string,
   title: string,
   fillColor: string,
@@ -10,7 +10,7 @@ interface figureDataProps {
   code: string[],
 };
 
-export const figureData: figureDataProps[] = [
+export const figureDataOne: figureDataProps[] = [
   {
     fig: "/images/alice_chap_sent_count_graph.png",
     title: "Sentence Count Per Chapter",
