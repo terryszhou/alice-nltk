@@ -1,10 +1,9 @@
+import { VStack } from "@chakra-ui/react";
 import * as React from "react";
-import { Box, Stack, VStack } from "@chakra-ui/react";
 
-import { HeroShell } from "./HeroShell";
+import { PageProps } from "../helpers/interfaces";
 import { HomeHeading } from "./HomeHeading";
 import { MouseTail } from "./MouseTail";
-import { PageProps } from "../helpers/interfaces";
 
 export const Home = ({ visRef, visible }: PageProps) => {
   const [loaded, setLoaded] = React.useState<boolean>(false);
@@ -13,7 +12,11 @@ export const Home = ({ visRef, visible }: PageProps) => {
   }, [visible]);
 
   return (
-    <VStack spacing={10} marginTop={5} minHeight={"100vh"}>
+    <VStack
+      spacing={10}
+      marginTop={5}
+      minHeight={"100vh"}
+      ref={visRef}>
       <HomeHeading />
       <MouseTail />
     </VStack>

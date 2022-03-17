@@ -1,26 +1,22 @@
-import * as React from "react";
 import {
-  Flex,
-  Heading,
-  HStack,
-  Image,
-  Stack,
-  Text,
-  useColorModeValue as colorMode,
-  usePrefersReducedMotion,
+  Flex, Heading, HStack, Image,
+  Stack, Text, useColorModeValue as colorMode,
 } from "@chakra-ui/react";
+import * as React from "react";
 
 import { fadeRight, float, typeWriter } from "../helpers/animations";
+import { useAnim } from "../hooks/useAnim";
 
 export const HomeHeading = () => {
-  const prefersReducedMotion: boolean = usePrefersReducedMotion();
-  const floatAnim: string | undefined = prefersReducedMotion ? undefined : `${float} 2s infinite`;
-  const fadeRightAnim1: string | undefined = prefersReducedMotion ? undefined : `${fadeRight} 250ms 250ms forwards`;
-  const fadeRightAnim2: string | undefined = prefersReducedMotion ? undefined : `${fadeRight} 250ms 400ms forwards`;
-  const fadeRightAnim3: string | undefined = prefersReducedMotion ? undefined : `${fadeRight} 250ms 550ms forwards`;
-  const typeWriterAnim: string | undefined = prefersReducedMotion ? undefined : `${typeWriter} 1s steps(20, end) 750ms forwards`;
-  const purpleShadow: string = colorMode("none","drop-shadow(0 0 5px rgb(159,43,122))");
-  const redShadow: string = colorMode("none","drop-shadow(0 3px 5px red) drop-shadow(0 -5px 5px goldenrod)");
+  const floatAnim: string | undefined = useAnim(`${float} 2s infinite`);
+  const fadeRightAnim1: string | undefined = useAnim(`${fadeRight} 250ms 250ms forwards`);
+  const fadeRightAnim2: string | undefined = useAnim(`${fadeRight} 250ms 400ms forwards`);
+  const fadeRightAnim3: string | undefined = useAnim(`${fadeRight} 250ms 550ms forwards`);
+  const typeWriterAnim: string | undefined = useAnim(`${typeWriter} 1s steps(20, end) 750ms forwards`);
+  const purpleShadow: string = colorMode(
+    "none","drop-shadow(0 0 5px rgb(159,43,122))" );
+  const redShadow: string = colorMode(
+    "none","drop-shadow(0 3px 5px red) drop-shadow(0 -5px 5px goldenrod)" );
 
   return (
     <HStack marginRight={20} marginTop={-10} spacing={{ base: -10, lg: -4 }}>

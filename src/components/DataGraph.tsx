@@ -1,13 +1,27 @@
-import { Code, Stack, useColorModeValue as colorMode, useDisclosure } from "@chakra-ui/react";
+import {
+  Code, Stack,
+  useColorModeValue as colorMode,
+  useDisclosure
+} from "@chakra-ui/react";
 import * as React from "react";
 
-import { BarChart, Bar, XAxis, YAxis, Tooltip, TooltipProps, ResponsiveContainer } from 'recharts';
+import {
+  BarChart, Bar, XAxis, YAxis, Tooltip,
+  TooltipProps, ResponsiveContainer
+} from 'recharts';
 import { ValueType, NameType } from "recharts/types/component/DefaultTooltipContent";
 
 import { figureDataProps} from "../data/figureData";
 import { DataGraphModal } from "./DataGraphModal";
 
-export const DataGraph = ({ fig, title, fillColor, valueLabel, data, code }: figureDataProps) => {
+export const DataGraph = ({
+  code,
+  data,
+  fig,
+  fillColor,
+  title,
+  valueLabel,
+}: figureDataProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <React.Fragment>
@@ -23,7 +37,9 @@ export const DataGraph = ({ fig, title, fillColor, valueLabel, data, code }: fig
           </text>
           <XAxis dataKey={"label"} />
           <YAxis />
-          <Tooltip content={<CustomTooltip valueLabel={valueLabel} />} cursor={false} />
+          <Tooltip
+            content={<CustomTooltip valueLabel={valueLabel} />}
+            cursor={false} />
           <Bar dataKey="value" fill={fillColor} radius={[5, 5, 0, 0]}/>
         </BarChart>
       </ResponsiveContainer>

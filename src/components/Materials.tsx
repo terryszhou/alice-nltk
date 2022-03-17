@@ -34,10 +34,17 @@ export const Materials = ({ visRef, visible }: PageProps) => {
             src={"/king.jpg"} />
         </Box>
         <Stack marginTop={5} maxWidth={{ sm: "60%", lg: "80%" }}>
-          <Heading fontFamily={"Nunito"} fontSize={"lg"} fontStyle={"italic"} textAlign={"justify"}>
+          <Heading
+            fontFamily={"Nunito"}
+            fontSize={"lg"}
+            fontStyle={"italic"}
+            textAlign={"justify"}>
             “Begin at the beginning,” the King said gravely, “and go on till you come to the end: then stop.”
           </Heading>
-          <Text fontFamily={"Nunito"} fontWeight={"bold"} textAlign={"right"}>
+          <Text
+            fontFamily={"Nunito"}
+            fontWeight={"bold"}
+            textAlign={"right"}>
             - Chapter XII: Alice's Evidence
           </Text>
         </Stack>
@@ -49,9 +56,13 @@ export const Materials = ({ visRef, visible }: PageProps) => {
         spacing={5}
         textAlign={"justify"}>
         <Text>
-          <Text as={"span"} fontStyle={"italic"}>Alice's Adventures in Wonderland</Text>
+          <Text as={"span"} fontStyle={"italic"}>
+            Alice's Adventures in Wonderland
+          </Text>
           {`, or `}
-          <Text as={"span"} fontStyle={"italic"}>Alice in Wonderland </Text>
+          <Text as={"span"} fontStyle={"italic"}>
+            {`Alice in Wonderland `}
+          </Text>
           as it is more commonly known, is an English children's novel written in 1865 by Lewis Carroll, with illustrations by John Tenniel.
         </Text>
         <Text>

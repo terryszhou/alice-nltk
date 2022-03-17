@@ -13,7 +13,10 @@ export const SentenceStructure = ({ visible, visRef }: PageProps) => {
   }, [visible]);
 
   return (
-    <HeroShell title={"NLTK Tokens: How Long is the Book?"} visRef={visRef} loaded={loaded}>
+    <HeroShell
+      title={"NLTK Tokens: How Long is the Book?"}
+      visRef={visRef}
+      loaded={loaded}>
       <Stack
         align={"center"}
         fontFamily={"var(--chakra-fonts-nunito)"}

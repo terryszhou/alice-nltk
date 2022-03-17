@@ -22,7 +22,10 @@ export const AboutNLTK = ({ visRef, visible }: PageProps) => {
   }, [visible]);
 
   return (
-    <HeroShell title={"What is Natural Language Processing?"} visRef={visRef} loaded={loaded}>
+    <HeroShell
+      title={"What is Natural Language Processing?"}
+      visRef={visRef}
+      loaded={loaded}>
       <Box marginBottom={{ base: "-10%", lg: 0 }}>
         <Stack
           fontFamily={"var(--chakra-fonts-nunito)"}
@@ -75,10 +78,17 @@ export const AboutNLTK = ({ visRef, visible }: PageProps) => {
             src={"/eaglet.jpg"} />
         </Box>
         <Stack marginTop={5} maxWidth={{ sm: "60%", lg: "80%" }}>
-          <Heading fontFamily={"Nunito"} fontSize={"lg"} fontStyle={"italic"} textAlign={"justify"}>
+          <Heading
+            fontFamily={"Nunito"}
+            fontSize={"lg"}
+            fontStyle={"italic"}
+            textAlign={"justify"}>
             “Speak English!” said the Eaglet. “I don’t know the meaning of half those long words, and, what’s more, I don’t believe you do either!”
           </Heading>
-          <Text fontFamily={"Nunito"} fontWeight={"bold"} textAlign={"right"}>
+          <Text
+            fontFamily={"Nunito"}
+            fontWeight={"bold"}
+            textAlign={"right"}>
             - Chapter III: A Caucus-Race and a Long Tale
           </Text>
         </Stack>

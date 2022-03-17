@@ -1,22 +1,19 @@
+import { Container, Flex, Heading, Stack } from '@chakra-ui/react';
 import * as React from "react";
-import {
-  Box,
-  Container,
-  Flex,
-  Heading,
-  Stack,
-  Text,
-  useColorModeValue as uCMV, 
-} from '@chakra-ui/react';
 
 interface HeroShellProps {
-  visRef?: any,
   children?: any,
-  title?: string
   loaded?: boolean,
+  title?: string
+  visRef?: any,
 };
 
-export const HeroShell = ({ title, visRef, children, loaded }: HeroShellProps) => {
+export const HeroShell = ({
+  children,
+  loaded,
+  title,
+  visRef,
+}: HeroShellProps) => {
   return (
     <Container
       maxW={{ base: "95%", sm: "85%", lg: "80%", xl: "70%" }}

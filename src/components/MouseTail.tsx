@@ -1,19 +1,12 @@
-import {
-  Box,
-  Stack,
-  Text,
-  useColorModeValue as colorMode,
-  usePrefersReducedMotion
-} from "@chakra-ui/react";
+import { Stack, Text, useColorModeValue as colorMode } from "@chakra-ui/react";
 import * as React from "react";
 
 import { myText, ogText } from "../data/mouseTail";
 import { scroll } from "../helpers/animations";
+import { useAnim } from "../hooks/useAnim";
 
 export const MouseTail = () => {
-  const prefersReducedMotion: boolean = usePrefersReducedMotion();
-  const scrollAnim: string | undefined =
-    prefersReducedMotion ? undefined : `${scroll} 3s 1.5s forwards`;
+  const scrollAnim: string | undefined = useAnim(`${scroll} 3s 1.5s forwards`);
   const [selectedText, setSelectedText] = React.useState<string[]>(myText);
   // const timer = setTimeout(() => setSelectedText(myText), 3000);
   // React.useEffect(() => () => clearTimeout(timer),[timer]);

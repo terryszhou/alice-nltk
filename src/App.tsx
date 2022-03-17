@@ -1,8 +1,5 @@
 import * as React from "react";
-import {
-  ChakraProvider,
-  theme,
-} from "@chakra-ui/react";
+import { ChakraProvider, theme } from "@chakra-ui/react";
 
 import "./App.css";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
