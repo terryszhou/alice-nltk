@@ -3,6 +3,8 @@ import * as React from "react";
 import { HeroShell } from "./HeroShell";
 import { PageProps } from "../helpers/interfaces";
 import { figureData } from "../data/figureData";
+import { BarChart, Bar, Label, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+
 
 export const SentenceStructure = ({ visible, visRef }: PageProps) => {
   const [loaded, setLoaded] = React.useState<boolean>(false);
@@ -43,10 +45,28 @@ export const SentenceStructure = ({ visible, visRef }: PageProps) => {
           borderRadius={5}
           maxWidth={"100%"}
           src={"/images/alice_chap_sent_count_graph.png"} />
-        <Image
+        <ResponsiveContainer width={"100%"} height={"100%"}>
+          <BarChart
+            width={500}
+            height={300}
+            data={figureData[0].data}
+            margin={{
+              top: 5,
+              right: 30,
+              left: 20,
+              bottom: 5 }}>
+            <XAxis dataKey={"label"} />
+            <YAxis />
+            <Tooltip />
+            <Bar dataKey="value" fill="#8884d8" />
+          </BarChart>
+        </ResponsiveContainer>
+
+
+        {/* <Image
           borderRadius={5}
           maxWidth={"100%"}
-          src={"/images/alice_avg_sent_length_graph.png"} />
+          src={"/images/alice_avg_sent_length_graph.png"} /> */}
       </Stack>
     </HeroShell>
   );

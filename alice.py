@@ -76,9 +76,9 @@ def create_alice_sid():
   # Defines column names
   df.columns = ["sentences", "compound_score", "pos_score", "neg_score", "neu_score", "chapter"]
   # Writes dataframe to Excel file
-  df.to_excel("alice.xlsx")
+  # df.to_excel("alice.xlsx")
 
-# create_alice_sid()
+create_alice_sid()
 
 def alice_chapter_sentiment_graph():
   # Separates plt tuple into figure and axis
@@ -131,6 +131,7 @@ def alice_chap_sent_count_graph():
   ax.bar(x=df.groupby('chapter').nunique()['sentences'].index, 
           height=df.groupby('chapter').nunique()['sentences'].values,
           color="#a53363")
+  # print(df.groupby('chapter').nunique()['sentences'].values)
   ax.set_xticklabels(df['chapter'].unique(), rotation=30)
   ax.set_title('Sentence count per chapter - Alice in Wonderland', fontsize=16)
   ax.spines['top'].set_visible(False)
@@ -138,8 +139,8 @@ def alice_chap_sent_count_graph():
   ax.spines['bottom'].set_alpha(0.2)
   ax.spines['left'].set_alpha(0.2)
   ax.yaxis.grid(alpha=0.2)
-  fig.savefig("public/images/alice_chap_sent_count_graph.png")
-  # plt.show()
+  # fig.savefig("public/images/alice_chap_sent_count_graph.png")
+  plt.show()
 
 # alice_chap_sent_count_graph()
 
@@ -178,6 +179,7 @@ def alice_avg_sent_length_graph():
   ax.bar(x=df.groupby('chapter').nunique()['sentences_length'].index, 
         height=df.groupby('chapter').nunique()['sentences_length'].values,
         alpha=0.7, color='#a53363')
+  print(df.groupby('chapter').nunique()['sentences_length'].values)
   ax.set_xticklabels(df['chapter'].unique(), rotation=30)
   ax.set_title('Avg. sentence length - Alice in Wonderland', fontsize=16)
   ax.spines['top'].set_visible(False)
@@ -186,8 +188,8 @@ def alice_avg_sent_length_graph():
   ax.spines['left'].set_alpha(0.2)
   ax.yaxis.grid(alpha=0.2)
   ax.set_ylabel('Word Count')
-  fig.savefig("public/images/alice_avg_sent_length_graph.png")
-  # plt.show()
+  # fig.savefig("public/images/alice_avg_sent_length_graph.png")
+  plt.show()
 
 # alice_avg_sent_length_graph()
 
