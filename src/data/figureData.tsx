@@ -1,5 +1,8 @@
 interface figureDataProps {
   fig: string,
+  title: string,
+  fillColor: string,
+  valueLabel: string,
   data: {
     label: string,
     value: number
@@ -10,6 +13,9 @@ interface figureDataProps {
 export const figureData: figureDataProps[] = [
   {
     fig: "/images/alice_chap_sent_count_graph.png",
+    title: "Sentence Count Per Chapter",
+    fillColor: "#993b62",
+    valueLabel: "sentences",
     data: [
       {
         label: "I",
@@ -74,6 +80,9 @@ export const figureData: figureDataProps[] = [
   },
   {
     fig: "/images/alice_avg_sent_length_graph.png",
+    title: "Average Sentence Length",
+    fillColor: "#b47490",
+    valueLabel: "words",
     data: [
       {
         label: "I",

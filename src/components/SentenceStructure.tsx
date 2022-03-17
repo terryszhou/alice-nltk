@@ -1,11 +1,12 @@
-import { Box, Code, Flex, Image, Stack, Heading, Text, useColorModeValue as colorMode } from "@chakra-ui/react";
+import { Code, Stack, Text, useColorModeValue as colorMode } from "@chakra-ui/react";
 import * as React from "react";
-import { HeroShell } from "./HeroShell";
-import { PageProps } from "../helpers/interfaces";
-import { figureData } from "../data/figureData";
-import { BarChart, Bar, Label, Cell, XAxis, YAxis, CartesianGrid, Tooltip, TooltipProps, Legend, ResponsiveContainer } from 'recharts';
+
+import { BarChart, Bar, XAxis, YAxis, Tooltip, TooltipProps, ResponsiveContainer } from 'recharts';
 import { ValueType, NameType } from "recharts/types/component/DefaultTooltipContent";
 
+import { figureData } from "../data/figureData";
+import { PageProps } from "../helpers/interfaces";
+import { HeroShell } from "./HeroShell";
 
 export const SentenceStructure = ({ visible, visRef }: PageProps) => {
   const [loaded, setLoaded] = React.useState<boolean>(false);
@@ -43,14 +44,6 @@ export const SentenceStructure = ({ visible, visRef }: PageProps) => {
         width={"100%"}
         marginY={"10%"}
         spacing={5}>
-        {/* <Image
-          borderRadius={5}
-          maxWidth={"100%"}
-          src={"/images/alice_chap_sent_count_graph.png"} />
-        <Image
-          borderRadius={5}
-          maxWidth={"100%"}
-          src={"/images/alice_avg_sent_length_graph.png"} /> */}
         <ResponsiveContainer height={300} width={"100%"}>
           <BarChart data={figureData[0].data}>
             <text
@@ -59,12 +52,12 @@ export const SentenceStructure = ({ visible, visRef }: PageProps) => {
               textAnchor="middle"
               x={165}
               y={5}>
-              <tspan fontFamily={"Nunito"} fontSize="14">Sentence Count Per Chapter</tspan>
+              <tspan fontFamily={"Nunito"} fontSize="14">{figureData[0].title}</tspan>
             </text>
             <XAxis dataKey={"label"} />
             <YAxis />
-            <Tooltip content={<CustomTooltip />} cursor={false} />
-            <Bar dataKey="value" fill="#993b62" radius={[5, 5, 0, 0]}/>
+            <Tooltip content={<CustomTooltip valueLabel={figureData[0].valueLabel} />} cursor={false} />
+            <Bar dataKey="value" fill={figureData[0].fillColor} radius={[5, 5, 0, 0]}/>
           </BarChart>
         </ResponsiveContainer>
         <ResponsiveContainer height={300} width={"100%"}>
@@ -75,12 +68,12 @@ export const SentenceStructure = ({ visible, visRef }: PageProps) => {
               textAnchor="middle"
               x={165}
               y={5}>
-              <tspan fontFamily={"Nunito"} fontSize="14">Average Sentence Length</tspan>
+              <tspan fontFamily={"Nunito"} fontSize="14">{figureData[1].title}</tspan>
             </text>
             <XAxis dataKey={"label"} />
             <YAxis />
-            <Tooltip content={<CustomTooltip />} cursor={false} />
-            <Bar dataKey="value" fill="#b47490" radius={[5, 5, 0, 0]}/>
+            <Tooltip content={<CustomTooltip valueLabel={figureData[1].valueLabel} />} cursor={false} />
+            <Bar dataKey="value" fill={figureData[1].fillColor} radius={[5, 5, 0, 0]}/>
           </BarChart>
         </ResponsiveContainer>
       </Stack>
@@ -88,12 +81,21 @@ export const SentenceStructure = ({ visible, visRef }: PageProps) => {
   );
 };
 
-export const CustomTooltip = ({ active, payload, label }: TooltipProps<ValueType, NameType>) => {
+interface TooltipLabels {
+  valueLabel: string,
+};
+
+export const CustomTooltip = ({
+  active,
+  payload,
+  label,
+  valueLabel
+}: TooltipProps<ValueType, NameType> & TooltipLabels) => {
   if (active && payload && payload.length) {
     return (  
       <Stack fontFamily={"var(--chakra-fonts-mono)"}>
         <Code children={`Chapter ${label}`} />
-        <Code children={`${payload[0].value} sentences`} />
+        <Code children={`${payload[0].value} ${valueLabel}`} />
       </Stack>
     );
   };
