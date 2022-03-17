@@ -2,6 +2,7 @@ import { Box, Code, Flex, Image, Stack, Heading, Text } from "@chakra-ui/react";
 import * as React from "react";
 import { HeroShell } from "./HeroShell";
 import { PageProps } from "../helpers/interfaces";
+import { figureData } from "../data/figureData";
 
 export const SentenceStructure = ({ visible, visRef }: PageProps) => {
   const [loaded, setLoaded] = React.useState<boolean>(false);
