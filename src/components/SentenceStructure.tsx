@@ -1,4 +1,4 @@
-import { Box, Code, Flex, Image, Stack, Heading, Text } from "@chakra-ui/react";
+import { Box, Code, Flex, Image, Stack, Heading, Text, useColorModeValue as colorMode } from "@chakra-ui/react";
 import * as React from "react";
 import { HeroShell } from "./HeroShell";
 import { PageProps } from "../helpers/interfaces";
@@ -40,34 +40,49 @@ export const SentenceStructure = ({ visible, visRef }: PageProps) => {
       </Stack>
       <Stack
         align={"center"}
+        width={"100%"}
         marginY={"10%"}
         spacing={5}>
-        <Image
-          borderRadius={5}
-          maxWidth={"100%"}
-          src={"/images/alice_chap_sent_count_graph.png"} />
-        <ResponsiveContainer width={"100%"} height={300}>
-          <BarChart
-            width={500}
-            height={300}
-            data={figureData[0].data}
-            margin={{
-              top: 5,
-              right: 30,
-              left: 20,
-              bottom: 5 }}>
-            <XAxis dataKey={"label"} />
-            <YAxis />
-            <Tooltip content={<CustomTooltip />} />
-            <Bar dataKey="value" fill="#8884d8" />
-          </BarChart>
-        </ResponsiveContainer>
-
-
         {/* <Image
           borderRadius={5}
           maxWidth={"100%"}
+          src={"/images/alice_chap_sent_count_graph.png"} />
+        <Image
+          borderRadius={5}
+          maxWidth={"100%"}
           src={"/images/alice_avg_sent_length_graph.png"} /> */}
+        <ResponsiveContainer height={300} width={"100%"}>
+          <BarChart data={figureData[0].data}>
+            <text
+              dominantBaseline="central"
+              fill={colorMode("black", "white")}
+              textAnchor="middle"
+              x={165}
+              y={5}>
+              <tspan fontFamily={"Nunito"} fontSize="14">Sentence Count Per Chapter</tspan>
+            </text>
+            <XAxis dataKey={"label"} />
+            <YAxis />
+            <Tooltip content={<CustomTooltip />} cursor={false} />
+            <Bar dataKey="value" fill="#993b62" radius={[5, 5, 0, 0]}/>
+          </BarChart>
+        </ResponsiveContainer>
+        <ResponsiveContainer height={300} width={"100%"}>
+          <BarChart data={figureData[1].data}>
+            <text
+              dominantBaseline="central"
+              fill={colorMode("black", "white")}
+              textAnchor="middle"
+              x={165}
+              y={5}>
+              <tspan fontFamily={"Nunito"} fontSize="14">Average Sentence Length</tspan>
+            </text>
+            <XAxis dataKey={"label"} />
+            <YAxis />
+            <Tooltip content={<CustomTooltip />} cursor={false} />
+            <Bar dataKey="value" fill="#b47490" radius={[5, 5, 0, 0]}/>
+          </BarChart>
+        </ResponsiveContainer>
       </Stack>
     </HeroShell>
   );
