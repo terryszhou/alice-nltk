@@ -3,7 +3,7 @@ import * as React from "react";
 import { PageProps } from "../helpers/interfaces";
 import { HeroShell } from "./HeroShell";
 
-export const Vader = ({ visRef, visible }: PageProps) => {
+export const VaderIntro = ({ visRef, visible }: PageProps) => {
   const [loaded, setLoaded] = React.useState<boolean>(false);
   React.useEffect(() => {
     visible && setLoaded(true);
