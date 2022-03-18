@@ -9,6 +9,8 @@ import * as React from "react";
 import {
   BarChart,
   Bar,
+  Line,
+  LineChart,
   XAxis,
   YAxis,
   Tooltip,
@@ -40,9 +42,9 @@ export const DataGraph = ({
             dominantBaseline="central"
             fill={colorMode("black", "white")}
             textAnchor="middle"
-            x={165}
-            y={5}>
-            <tspan fontFamily={"Nunito"} fontSize="14">{title}</tspan>
+            x={"55%"}
+            y={4.5}>
+            <tspan fontFamily={"Nunito"} fontSize="12">{title}</tspan>
           </text>
           <XAxis dataKey={"label"} />
           <YAxis />

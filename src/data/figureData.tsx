@@ -148,3 +148,79 @@ export const figureDataOne: figureDataProps[] = [
     ],
   },
 ];
+
+export const figureDataTwo: figureDataProps[] = [
+  {
+    fig: "/images/alice_compound_graph.png",
+    title: "Mean Compound Sentiment Scores",
+    fillColor: "#993b62",
+    valueLabel: "compound score",
+    data: [
+      {
+        label: "I",
+        value: 0.10598065
+      },
+      {
+        label: "II",
+        value: 0.04139747
+      },
+      {
+        label: "III",
+        value: 0.07933281
+      },
+      {
+        label: "IV",
+        value: 0.0852033
+      },
+      {
+        label: "V",
+        value: -0.05067778
+      },
+      {
+        label: "VI",
+        value: 0.07265408
+      },
+      {
+        label: "VII",
+        value: 0.02670408
+      },
+      {
+        label: "VIII",
+        value: 0.05882875
+      },
+      {
+        label: "IX",
+        value: -0.08812759
+      },
+      {
+        label: "X",
+        value: 0.00022717
+      },
+      {
+        label: "XI",
+        value: 0.05556282
+      },
+      {
+        label: "XII",
+        value: 0.02204722
+      },
+    ],
+    code: [
+      "fig, ax = plt.subplots(figsize=(15,7))",
+      "ax.plot(df.groupby('chapter', sort=False).mean()['compound_score'].index, df.groupby('chapter', sort=False).mean()['compound_score'].values, linewidth=3, color='#a53363')",
+      "ax.set_xticklabels(df.groupby('chapter', sort=False).mean()['compound_score'].index, rotation=30)",
+      "ax.set_ylim(-0.15, 0.15)",
+      "ax.axhline(y=0, linestyle=':', color='grey')",
+      "ax.set_title('Mean compound sentiment score of each chapter - Alice in Wonderland', fontsize=16)",
+      "ax.spines['top'].set_visible(False)",
+      "ax.spines['right'].set_visible(False)",
+      "ax.spines['bottom'].set_alpha(0.2)",
+      "ax.spines['left'].set_alpha(0.2)",
+      "ax.fill_between(x=ax.get_xticks(), y1=-0.05, y2=0.05, color='grey', alpha=0.1)",
+      "ax.text(x=0, y=0.025, s='neutral')",
+      "ax.xaxis.grid(alpha=0.2)",
+      "ax.yaxis.grid(alpha=0.2)",
+      "plt.show()",
+    ],
+  }
+]

@@ -2,6 +2,8 @@ import { Code, Heading, Image, Stack, Text } from "@chakra-ui/react";
 import * as React from "react";
 import { PageProps } from "../helpers/interfaces";
 import { HeroShell } from "./HeroShell";
+import { figureDataTwo } from "../data/figureData";
+import { DataGraph } from "./DataGraph";
 
 export const VaderChapters = ({ visRef, visible }: PageProps) => {
   const [loaded, setLoaded] = React.useState<boolean>(false);
@@ -24,7 +26,7 @@ export const VaderChapters = ({ visRef, visible }: PageProps) => {
           We can also apply our VADER analysis to chapters as a whole; as we can see from our Mean Compound Score graph, Alice in Wonderland starts off quite positively with a compound sentiment score of over 0.10. 
         </Text>
         <Text style={{ textIndent: 20 }}>
-          Notice the two troughs at Chapter V and Chapter IX. The one in Chapter V makes sense; this is the part in the story where Alice is constantly shifting sizes, and getting into all sorts of misadventures; she gets stuck in a house, attacked by birds, threatened to be burnt alive, etc.
+          Notice the two troughs at Chapter V and Chapter IX. The trough in Chapter V makes sense; this is the part in the story where Alice is constantly shifting sizes, and getting into all sorts of misadventures; she gets stuck in a house, attacked by birds, is forced to recite poetry for an unreceptive audience, etc.
         </Text>
         <Text style={{ textIndent: 20 }}>
           But the trough in Chapter IX is interesting. The chapter is innocuous enough: it mostly involves a conversation between Alice, the Gryphon, and the Mock Turtle. There are two factors to consider here.
@@ -45,7 +47,15 @@ export const VaderChapters = ({ visRef, visible }: PageProps) => {
         align={"center"}
         width={"100%"}
         spacing={5}>
-        <Image src={"/images/alice_compound_graph.png"} />
+        {figureDataTwo.map((e, i) => (
+          <DataGraph
+            code={e.code}
+            data={e.data}
+            fig={e.fig}
+            fillColor={e.fillColor}
+            key={i}
+            title={e.title}
+            valueLabel={e.valueLabel} /> ))}
         <Image src={"/images/alice_chap_vader_sent_graph.png"} />
       </Stack>
     </HeroShell>

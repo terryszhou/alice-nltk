@@ -16,11 +16,11 @@ alice_text = open("alice.txt", "r").read()
 alice_sentences = nltk.sent_tokenize(alice_text)
 compound_scores = []
 
-def test_sent(num):
-  print(alice_sentences[num])
-  print(sid.polarity_scores(alice_sentences[num]))
+# def test_sent(num):
+#   print(alice_sentences[num])
+#   print(sid.polarity_scores(alice_sentences[num]))
 
-test_sent(708)
+# test_sent(708)
 
 for sentence in alice_sentences:
   compound_scores.append((sentence.replace("\n", " "),
@@ -83,7 +83,7 @@ def create_alice_sid():
   # Writes dataframe to Excel file
   # df.to_excel("alice.xlsx")
 
-# create_alice_sid()
+create_alice_sid()
 
 def alice_chapter_sentiment_graph():
   # Separates plt tuple into figure and axis
@@ -92,6 +92,7 @@ def alice_chapter_sentiment_graph():
   ax.plot(df.groupby('chapter', sort=False).mean()['compound_score'].index,
           df.groupby('chapter', sort=False).mean()['compound_score'].values,
           linewidth=3, color="#a53363")
+  print(df.groupby('chapter', sort=False).mean()['compound_score'].values)
   # Labels and skews x-axis
   ax.set_xticklabels(df.groupby('chapter', sort=False).mean()['compound_score'].index, rotation=30)
   # Sets y-axis max/min values
@@ -118,7 +119,7 @@ def alice_chapter_sentiment_graph():
   # Shows graph in terminal
   # plt.show()
 
-# alice_chapter_sentiment_graph()
+alice_chapter_sentiment_graph()
 
 def alice_overall_sent_totals():
   df['pos_score'] = np.where(df['compound_score'] >= 0.05, 1, 0)
