@@ -34,8 +34,12 @@ export const VaderChapters = ({ visRef, visible }: PageProps) => {
         <Text style={{ textIndent: 20 }}>
           Firstly, VADER analysis works based on common words. In this case, it seems that VADER thinks that the 'Mock' in 'Mock Turtle' should be scored negatively, as shown here:
         </Text>
-        <Code children={`"You did," said the Mock Turtle.`} fontSize={"xs"} />
-        <Code children={`{'neg': 0.359, 'neu': 0.641, 'pos': 0.0, 'compound': -0.4215}`} fontSize={"xs"} />
+        <Code
+          children={`"You did," said the Mock Turtle.`}
+          fontSize={"xs"} />
+        <Code
+          children={`{'neg': 0.359, 'neu': 0.641, 'pos': 0.0, 'compound': -0.4215}`}
+          fontSize={"xs"} />
         <Text style={{ textIndent: 20 }}>
           Secondly, the Mock Turtle spends most of the chapter sobbing. Crying obviously has a negative VADER score, but in the context of the chapter it is used for comedy.
         </Text>

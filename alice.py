@@ -83,7 +83,7 @@ def create_alice_sid():
   # Writes dataframe to Excel file
   # df.to_excel("alice.xlsx")
 
-create_alice_sid()
+# create_alice_sid()
 
 def alice_chapter_sentiment_graph():
   # Separates plt tuple into figure and axis
@@ -119,7 +119,7 @@ def alice_chapter_sentiment_graph():
   # Shows graph in terminal
   # plt.show()
 
-alice_chapter_sentiment_graph()
+# alice_chapter_sentiment_graph()
 
 def alice_overall_sent_totals():
   df['pos_score'] = np.where(df['compound_score'] >= 0.05, 1, 0)
@@ -214,6 +214,9 @@ def get_chunks(text):
     else:
       continue
   return entity_list
+
+print(nltk.pos_tag(nltk.word_tokenize(alice_sentences[4])))
+print(get_chunks(alice_sentences[4]))
 
 def clean_sentences():
   string.punctuation += '“”‘—'
