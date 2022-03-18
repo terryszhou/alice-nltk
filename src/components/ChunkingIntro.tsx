@@ -55,15 +55,28 @@ export const ChunkingIntro = ({ visible, visRef }: PageProps) => {
         </Button>
       </Stack>
       <Stack
-        align={"left"}
+        align={"center"}
         fontFamily={"var(--chakra-fonts-mono)"}
         fontSize={"sm"}
+        height={500}
+        position={"relative"}
         spacing={2}
-        textAlign={"justify"}>
-        <Text fontSize={entities ? "2xl" : "10px"}>
-          {entities
-            ? `['Rabbit', 'Alice']`
-            : `[('I', 'PRP'), ('shall', 'MD'), ('be', 'VB'), ('late', 'JJ'), ('!', '.'), ('”', 'NN'), ('(', '('), ('when', 'WRB'), ('she', 'PRP'), ('thought', 'VBD'), ('it', 'PRP'), ('over', 'IN'), ('afterwards', 'NNS'), (',', ','), ('it', 'PRP'), ('occurred', 'VBD'), ('to', 'TO'), ('her', 'PRP$'), ('that', 'IN'), ('she', 'PRP'), ('ought', 'MD'), ('to', 'TO'), ('have', 'VB'), ('wondered', 'VBN'), ('at', 'IN'), ('this', 'DT'), (',', ','), ('but', 'CC'), ('at', 'IN'), ('the', 'DT'), ('time', 'NN'), ('it', 'PRP'), ('all', 'DT'), ('seemed', 'VBD'), ('quite', 'RB'), ('natural', 'JJ'), (')', ')'), (';', ':'), ('but', 'CC'), ('when', 'WRB'), ('the', 'DT'), ('Rabbit', 'NNP'), ('actually', 'RB'), ('_took', 'VBZ'), ('a', 'DT'), ('watch', 'NN'), ('out', 'IN'), ('of', 'IN'), ('its', 'PRP$'), ('waistcoat-pocket_', 'NN'), (',', ','), ('and', 'CC'), ('looked', 'VBD'), ('at', 'IN'), ('it', 'PRP'), (',', ','), ('and', 'CC'), ('then', 'RB'), ('hurried', 'VBD'), ('on', 'IN'), (',', ','), ('Alice', 'NNP'), ('started', 'VBD'), ('to', 'TO'), ('her', 'PRP$'), ('feet', 'NNS'), (',', ','), ('for', 'IN'), ('it', 'PRP'), ('flashed', 'VBD'), ('across', 'IN'), ('her', 'PRP$'), ('mind', 'NN'), ('that', 'IN'), ('she', 'PRP'), ('had', 'VBD'), ('never', 'RB'), ('before', 'RB'), ('seen', 'VBN'), ('a', 'DT'), ('rabbit', 'NN'), ('with', 'IN'), ('either', 'DT'), ('a', 'DT'), ('waistcoat-pocket', 'NN'), (',', ','), ('or', 'CC'), ('a', 'DT'), ('watch', 'NN'), ('to', 'TO'), ('take', 'VB'), ('out', 'IN'), ('of', 'IN'), ('it', 'PRP'), (',', ','), ('and', 'CC'), ('burning', 'VBG'), ('with', 'IN'), ('curiosity', 'NN'), (',', ','), ('she', 'PRP'), ('ran', 'VBD'), ('across', 'IN'), ('the', 'DT'), ('field', 'NN'), ('after', 'IN'), ('it', 'PRP'), (',', ','), ('and', 'CC'), ('fortunately', 'RB'), ('was', 'VBD'), ('just', 'RB'), ('in', 'IN'), ('time', 'NN'), ('to', 'TO'), ('see', 'VB'), ('it', 'PRP'), ('pop', 'VB'), ('down', 'RP'), ('a', 'DT'), ('large', 'JJ'), ('rabbit-hole', 'JJ'), ('under', 'IN'), ('the', 'DT'), ('hedge', 'NN'), ('.', '.')]` }
+        textAlign={"justify"}
+        width={"100%"}>
+        <Text
+          fontSize={"10px"}
+          opacity={!entities ? 1 : 0}
+          position={"absolute"}
+          transition={"200ms ease-in-out"}>
+          `[('I', 'PRP'), ('shall', 'MD'), ('be', 'VB'), ('late', 'JJ'), ('!', '.'), ('”', 'NN'), ('(', '('), ('when', 'WRB'), ('she', 'PRP'), ('thought', 'VBD'), ('it', 'PRP'), ('over', 'IN'), ('afterwards', 'NNS'), (',', ','), ('it', 'PRP'), ('occurred', 'VBD'), ('to', 'TO'), ('her', 'PRP$'), ('that', 'IN'), ('she', 'PRP'), ('ought', 'MD'), ('to', 'TO'), ('have', 'VB'), ('wondered', 'VBN'), ('at', 'IN'), ('this', 'DT'), (',', ','), ('but', 'CC'), ('at', 'IN'), ('the', 'DT'), ('time', 'NN'), ('it', 'PRP'), ('all', 'DT'), ('seemed', 'VBD'), ('quite', 'RB'), ('natural', 'JJ'), (')', ')'), (';', ':'), ('but', 'CC'), ('when', 'WRB'), ('the', 'DT'), ('Rabbit', 'NNP'), ('actually', 'RB'), ('_took', 'VBZ'), ('a', 'DT'), ('watch', 'NN'), ('out', 'IN'), ('of', 'IN'), ('its', 'PRP$'), ('waistcoat-pocket_', 'NN'), (',', ','), ('and', 'CC'), ('looked', 'VBD'), ('at', 'IN'), ('it', 'PRP'), (',', ','), ('and', 'CC'), ('then', 'RB'), ('hurried', 'VBD'), ('on', 'IN'), (',', ','), ('Alice', 'NNP'), ('started', 'VBD'), ('to', 'TO'), ('her', 'PRP$'), ('feet', 'NNS'), (',', ','), ('for', 'IN'), ('it', 'PRP'), ('flashed', 'VBD'), ('across', 'IN'), ('her', 'PRP$'), ('mind', 'NN'), ('that', 'IN'), ('she', 'PRP'), ('had', 'VBD'), ('never', 'RB'), ('before', 'RB'), ('seen', 'VBN'), ('a', 'DT'), ('rabbit', 'NN'), ('with', 'IN'), ('either', 'DT'), ('a', 'DT'), ('waistcoat-pocket', 'NN'), (',', ','), ('or', 'CC'), ('a', 'DT'), ('watch', 'NN'), ('to', 'TO'), ('take', 'VB'), ('out', 'IN'), ('of', 'IN'), ('it', 'PRP'), (',', ','), ('and', 'CC'), ('burning', 'VBG'), ('with', 'IN'), ('curiosity', 'NN'), (',', ','), ('she', 'PRP'), ('ran', 'VBD'), ('across', 'IN'), ('the', 'DT'), ('field', 'NN'), ('after', 'IN'), ('it', 'PRP'), (',', ','), ('and', 'CC'), ('fortunately', 'RB'), ('was', 'VBD'), ('just', 'RB'), ('in', 'IN'), ('time', 'NN'), ('to', 'TO'), ('see', 'VB'), ('it', 'PRP'), ('pop', 'VB'), ('down', 'RP'), ('a', 'DT'), ('large', 'JJ'), ('rabbit-hole', 'JJ'), ('under', 'IN'), ('the', 'DT'), ('hedge', 'NN'), ('.', '.')]`
+        </Text>
+        <Text
+          fontSize={"2xl"}
+          opacity={entities ? 1 : 0}
+          position={"absolute"}
+          top={"30%"}
+          transition={"200ms ease-in-out"}>
+          `['Rabbit', 'Alice']`
         </Text>
       </Stack>
     </HeroShell>
