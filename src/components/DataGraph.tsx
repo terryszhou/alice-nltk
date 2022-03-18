@@ -9,8 +9,6 @@ import * as React from "react";
 import {
   BarChart,
   Bar,
-  Line,
-  LineChart,
   XAxis,
   YAxis,
   Tooltip,

@@ -222,5 +222,5 @@ export const figureDataTwo: figureDataProps[] = [
       "ax.yaxis.grid(alpha=0.2)",
       "plt.show()",
     ],
-  }
+  },
 ]
