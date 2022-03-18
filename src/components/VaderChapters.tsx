@@ -1,4 +1,4 @@
-import { Code, Heading, Stack, Text } from "@chakra-ui/react";
+import { Code, Heading, Image, Stack, Text } from "@chakra-ui/react";
 import * as React from "react";
 import { PageProps } from "../helpers/interfaces";
 import { HeroShell } from "./HeroShell";
@@ -15,57 +15,38 @@ export const VaderChapters = ({ visRef, visible }: PageProps) => {
       title={"VADER Analysis: Chapter by Chapter"}
       visRef={visRef}>
       <Stack
-        align={"center"}
+        align={"left"}
         fontFamily={"var(--chakra-fonts-nunito)"}
-        fontSize={{ base: "sm", lg: "md" }}
-        spacing={5}
+        fontSize={"sm"}
+        spacing={2}
         textAlign={"justify"}>
-        <Text>
-          VADER (or Valence Aware Dictionary and sEntiment Reasoner) is a lexicon-based analytical tool built into NLTK. It allows us to analyze a given text for positive, negative, and neutral sentiment values, and score them accordingly. Like so:
+        <Text style={{ textIndent: 20 }}>
+          We can also apply our VADER analysis to chapters as a whole; as we can see from our Mean Compound Score graph, Alice in Wonderland starts off quite positively with a compound sentiment score of over 0.10. 
         </Text>
-        <Stack textAlign={"left"} width={"100%"}>
-          <Code children={'sid = SentimentIntensityAnalyzer()'} />
-          <Code children={'compound_scores = []'} />
-          <Code children={'for sentence in alice_sentences:'} />
-          <Code children={'compound_scores.append((sentence.replace("\n", " "),'} style={{ textIndent: 20 }} />
-          <Code children={'sid.polarity_scores(sentence)["compound"],'} style={{ textIndent: 20 }} />
-          <Code children={'sid.polarity_scores(sentence)["pos"],'} style={{ textIndent: 20 }} />
-          <Code children={'sid.polarity_scores(sentence)["neg"],'} style={{ textIndent: 20 }} />
-          <Code children={'sid.polarity_scores(sentence)["neu"],'} style={{ textIndent: 20 }} />
-        </Stack>
-        <Text>
-          The result is a value between for -1 and 1, with anything between -0.5 and 0.5 considered emotionally neutral.
+        <Text style={{ textIndent: 20 }}>
+          Notice the two troughs at Chapter V and Chapter IX. The one in Chapter V makes sense; this is the part in the story where Alice is constantly shifting sizes, and getting into all sorts of misadventures; she gets stuck in a house, attacked by birds, threatened to be burnt alive, etc.
         </Text>
-        <Text>
-          We can use this to easily determine the most emotionally negative and positive sentences in the text.
+        <Text style={{ textIndent: 20 }}>
+          But the trough in Chapter IX is interesting. The chapter is innocuous enough: it mostly involves a conversation between Alice, the Gryphon, and the Mock Turtle. There are two factors to consider here.
+        </Text>
+        <Text style={{ textIndent: 20 }}>
+          Firstly, VADER analysis works based on common words. In this case, it seems that VADER thinks that the 'Mock' in 'Mock Turtle' should be scored negatively, as shown here:
+        </Text>
+        <Code children={`"You did," said the Mock Turtle.`} fontSize={"xs"} />
+        <Code children={`{'neg': 0.359, 'neu': 0.641, 'pos': 0.0, 'compound': -0.4215}`} fontSize={"xs"} />
+        <Text style={{ textIndent: 20 }}>
+          Secondly, the Mock Turtle spends most of the chapter sobbing. Crying obviously has a negative VADER score, but in the context of the chapter it is used for comedy.
+        </Text>
+        <Text style={{ textIndent: 20 }}>
+          This points out an interesting gap in VADER analysis: as of yet, it is a literal technique. It cannot capture situational irony, nuance, or satire.
         </Text>
       </Stack>
       <Stack
         align={"center"}
         width={"100%"}
         spacing={5}>
-        <Heading
-          fontFamily={"Nunito"}
-          fontSize={"2xl"}
-          fontWeight={"bold"}
-          textAlign={"center"}>
-          The most negative sentence:
-        </Heading>
-        <Text as={"cite"} style={{ textIndent: 20 }}>
-          '“You’re nothing but a pack of cards!”  At this the whole pack rose up into the air, and came flying down upon her: she gave a little scream, half of fright and half of anger, and tried to beat them off, and found herself lying on the bank, with her head in the lap of her sister, who was gently brushing away some dead leaves that had fluttered down from the trees upon her face.'
-        </Text>
-        <Text>Compound Score: -0.9657</Text>
-        <Heading
-          fontFamily={"Nunito"}
-          fontSize={"2xl"}
-          fontWeight={"bold"}
-          textAlign={"center"}>
-          The most positive sentence:
-        </Heading>
-        <Text as={"cite"} style={{ textIndent: 20 }}>
-          'But her sister sat still just as she left her, leaning her head on her hand, watching the setting sun, and thinking of little Alice and all her wonderful Adventures, till she too began dreaming after a fashion, and this was her dream:—  First, she dreamed of little Alice herself, and once again the tiny hands were clasped upon her knee, and the bright eager eyes were looking up into hers—she could hear the very tones of her voice, and see that queer little toss of her head to keep back the wandering hair that _would_ always get into her eyes—and still as she listened, or seemed to listen, the whole place around her became alive with the strange creatures of her little sister’s dream.'
-        </Text>
-        <Text>Compound Score: 0.9745</Text>
+        <Image src={"/images/alice_compound_graph.png"} />
+        <Image src={"/images/alice_chap_vader_sent_graph.png"} />
       </Stack>
     </HeroShell>
   );

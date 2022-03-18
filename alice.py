@@ -16,6 +16,11 @@ alice_text = open("alice.txt", "r").read()
 alice_sentences = nltk.sent_tokenize(alice_text)
 compound_scores = []
 
+def test_sent(num):
+  print(alice_sentences[num])
+  print(sid.polarity_scores(alice_sentences[num]))
+
+test_sent(708)
 
 for sentence in alice_sentences:
   compound_scores.append((sentence.replace("\n", " "),
@@ -55,7 +60,7 @@ def most_polar_sentences():
     elif sent[1] == min(all_scores):
       print(f"The most negative compound score was assigned to:\n{sent}.\n")
 
-most_polar_sentences()
+# most_polar_sentences()
 
 df = pd.DataFrame(compound_scores)
 
@@ -259,7 +264,7 @@ def named_entities():
 
 # named_entities()
 
-df_grouped = df.groupby('chapter', as_index=False).sum()
+# df_grouped = df.groupby('chapter', as_index=False).sum()
 
 def alice_main_ne_chapter_occurrences():
   # print(df_grouped)
@@ -287,7 +292,7 @@ def alice_main_ne_chapter_occurrences():
 # alice_main_ne_chapter_occurrences()
 
 colors = ["#186A3B", "#1D8348", "#239B56", "#28B463", "#2ECC71", "#58D68D", "#82E0AA", "#ABEBC6", "#D5F5E3", "#FCF3CF", "#F9E79F", "#F7DC6F"]
-top_chars = df_grouped.iloc[:,4:].sum().sort_values(ascending=False)[0:15].index.drop('neu_score')
+# top_chars = df_grouped.iloc[:,4:].sum().sort_values(ascending=False)[0:15].index.drop('neu_score')
 
 def top_characters():
   sums_by_chapter = {}
