@@ -83,7 +83,7 @@ def create_alice_sid():
   # Writes dataframe to Excel file
   # df.to_excel("alice.xlsx")
 
-# create_alice_sid()
+create_alice_sid()
 
 def alice_chapter_sentiment_graph():
   # Separates plt tuple into figure and axis
@@ -215,9 +215,6 @@ def get_chunks(text):
       continue
   return entity_list
 
-print(nltk.pos_tag(nltk.word_tokenize(alice_sentences[4])))
-print(get_chunks(alice_sentences[4]))
-
 def clean_sentences():
   string.punctuation += '“”‘—'
   string.punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~“”‘—'
@@ -239,7 +236,7 @@ def clean_sentences():
   df['named_entities'] = df['cleaned_sentences'].apply(lambda x: get_chunks(x))
   # print(df.loc[50]['named_entities'])
 
-# clean_sentences()
+clean_sentences()
 
 def named_entities():
   # Returns all named entities in the text and removes duplicates
@@ -266,9 +263,9 @@ def named_entities():
   df.to_excel("new_alice.xlsx")
   # print(df['Alice'].sum())
 
-# named_entities()
+named_entities()
 
-# df_grouped = df.groupby('chapter', as_index=False).sum()
+df_grouped = df.groupby('chapter', as_index=False).sum()
 
 def alice_main_ne_chapter_occurrences():
   # print(df_grouped)
@@ -293,10 +290,10 @@ def alice_main_ne_chapter_occurrences():
   fig.savefig("public/images/alice_main_ne_chapter_occurrences.png")
   # plt.show()
 
-# alice_main_ne_chapter_occurrences()
+alice_main_ne_chapter_occurrences()
 
 colors = ["#186A3B", "#1D8348", "#239B56", "#28B463", "#2ECC71", "#58D68D", "#82E0AA", "#ABEBC6", "#D5F5E3", "#FCF3CF", "#F9E79F", "#F7DC6F"]
-# top_chars = df_grouped.iloc[:,4:].sum().sort_values(ascending=False)[0:15].index.drop('neu_score')
+top_chars = df_grouped.iloc[:,4:].sum().sort_values(ascending=False)[0:15].index.drop('neu_score')
 
 def top_characters():
   sums_by_chapter = {}
@@ -326,7 +323,7 @@ def top_characters():
   fig.savefig("public/images/alice_top_characters.png")
   # plt.show()
 
-# top_characters()
+top_characters()
 
 def characters_by_sentiment():
   df['pos'] = np.where(df['pos_score'] > df['neg_score'], 1, 0)
