@@ -295,7 +295,7 @@ def alice_main_ne_chapter_occurrences():
 colors = ["#ae2e74", "#d84969", "#f5705c", "#ff9c53",
           "#ffca57", "#f9f871", "#00c9b7", "#00a093",
           "#0096b5", "#0087ca", "#4370c8", "#8d52a9"]
-top_chars = df_grouped.iloc[:,4:].sum().sort_values(ascending=False)[0:15].index.drop('neu_score')
+top_chars = df_grouped.iloc[:,4:].sum().sort_values(ascending=False)[0:15].index.drop(['neu_score', 'Rabbit'])
 
 def top_characters():
   sums_by_chapter = {}
@@ -307,6 +307,7 @@ def top_characters():
     for char in top_chars:
       df_plot2 = df_plot.groupby('chapter', as_index=False).sum()
       value = df_plot2[char].values[0]
+      print(df_plot2[char], value)
       if char not in sums_by_chapter.keys():
         sums_by_chapter[char] = 0
       ax.barh(y=char, width=value, left=sums_by_chapter[char], color=colors[i])
@@ -325,7 +326,7 @@ def top_characters():
   fig.savefig("public/images/alice_top_characters.png")
   plt.show()
 
-# top_characters()
+top_characters()
 
 def characters_by_sentiment():
   df['pos'] = np.where(df['pos_score'] > df['neg_score'], 1, 0)
@@ -349,4 +350,4 @@ def characters_by_sentiment():
   fig.savefig("public/images/alice_characters_by_sentiment.png")
   plt.show()
 
-characters_by_sentiment()
+# characters_by_sentiment()
