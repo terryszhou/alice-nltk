@@ -290,9 +290,11 @@ def alice_main_ne_chapter_occurrences():
   fig.savefig("public/images/alice_main_ne_chapter_occurrences.png")
   # plt.show()
 
-alice_main_ne_chapter_occurrences()
+# alice_main_ne_chapter_occurrences()
 
-colors = ["#186A3B", "#1D8348", "#239B56", "#28B463", "#2ECC71", "#58D68D", "#82E0AA", "#ABEBC6", "#D5F5E3", "#FCF3CF", "#F9E79F", "#F7DC6F"]
+colors = ["#ae2e74", "#d84969", "#f5705c", "#ff9c53",
+          "#ffca57", "#f9f871", "#00c9b7", "#00a093",
+          "#0096b5", "#0087ca", "#4370c8", "#8d52a9"]
 top_chars = df_grouped.iloc[:,4:].sum().sort_values(ascending=False)[0:15].index.drop('neu_score')
 
 def top_characters():
@@ -321,9 +323,9 @@ def top_characters():
   sns.palplot(colors, size=0.2)
   ax.text(s='Chapters I to XII', x=-40, y=-5)
   fig.savefig("public/images/alice_top_characters.png")
-  # plt.show()
+  plt.show()
 
-top_characters()
+# top_characters()
 
 def characters_by_sentiment():
   df['pos'] = np.where(df['pos_score'] > df['neg_score'], 1, 0)
@@ -332,9 +334,9 @@ def characters_by_sentiment():
   fig, ax = plt.subplots(figsize=(15, 7))
   for char in top_chars:
     char_df = df[df[char] != 0].loc[:, ['pos', 'neg', 'neu']].sum() / len(df[df[char] != 0]) * 100
-    ax.barh(y=char, width=char_df.loc['pos'], color='#186A3B', label='positive')
-    ax.barh(y=char, width=char_df.loc['neu'], left=char_df.loc['pos'], color='#FCF3CF', alpha=0.3, label='neutral')
-    ax.barh(y=char, width=char_df.loc['neg'], left=char_df.loc['pos'] + char_df.loc['neu'], color='#D4AC0D', label='negative')
+    ax.barh(y=char, width=char_df.loc['pos'], color='#ae2e74', label='positive')
+    ax.barh(y=char, width=char_df.loc['neu'], left=char_df.loc['pos'], color='#bca5ae', alpha=0.3, label='neutral')
+    ax.barh(y=char, width=char_df.loc['neg'], left=char_df.loc['pos'] + char_df.loc['neu'], color='#8f729a', label='negative')
   ax.legend(['positive', 'neutral', 'negative'], frameon=False, bbox_to_anchor=(1,0.5))
   ax.spines['top'].set_visible(False)
   ax.spines['right'].set_visible(False)
@@ -345,6 +347,6 @@ def characters_by_sentiment():
   ax.set_xlabel('[%]')
   ax.set_title('Sentences with character mention divided by sentiment', fontsize=16)
   fig.savefig("public/images/alice_characters_by_sentiment.png")
-  # plt.show()
+  plt.show()
 
-# characters_by_sentiment()
+characters_by_sentiment()
