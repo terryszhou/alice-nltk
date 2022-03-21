@@ -1,6 +1,5 @@
-import { Box, Image, Button, Stack, Text, useToast, useColorModeValue as colorMode, useDisclosure } from "@chakra-ui/react";
+import { Stack, Text, useColorModeValue as colorMode, useDisclosure } from "@chakra-ui/react";
 import * as React from "react";
-import { CustomTooltip } from "./DataGraph";
 
 import {
   ResponsiveContainer,
