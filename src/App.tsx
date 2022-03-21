@@ -6,6 +6,7 @@ import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { Home } from "./components/Home";
 import { AboutNLTK } from "./components/AboutNLTK";
 import { ChunkingIntro } from "./components/ChunkingIntro";
+import { ChunkingChapters } from "./components/ChunkingChapters";
 import { Materials } from "./components/Materials";
 import { SentenceStructure } from "./components/SentenceStructure";
 import { VaderIntro } from "./components/VaderIntro";
@@ -20,6 +21,7 @@ export const App = () => {
   const [visRef5, visible5]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
   const [visRef6, visible6]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
   const [visRef7, visible7]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
+  const [visRef8, visible8]: (boolean | React.MutableRefObject<undefined>)[] = useOnScreen();
 
   return (
     <ChakraProvider theme={theme}>
@@ -31,6 +33,7 @@ export const App = () => {
       <VaderIntro visRef={visRef5} visible={visible5} />
       <VaderChapters visRef={visRef6} visible={visible6} />
       <ChunkingIntro visRef={visRef7} visible={visible7} />
+      <ChunkingChapters visRef={visRef8} visible={visible8} />
     </ChakraProvider>
   );
 };
