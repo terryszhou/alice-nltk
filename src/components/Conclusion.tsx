@@ -1,20 +1,8 @@
-import { Image, Stack, Text, useColorModeValue as colorMode, useDisclosure } from "@chakra-ui/react";
+import { Image, Stack, Text } from "@chakra-ui/react";
 import * as React from "react";
-
-import {
-  ResponsiveContainer,
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  Legend
-} from "recharts";
 
 import { PageProps } from "../helpers/interfaces";
 import { HeroShell } from "./HeroShell";
-import { figureDataThree } from "../data/figureData";
-import { DataGraphModal } from "./DataGraphModal";
 
 export const Conclusion = ({ visible, visRef }: PageProps) => {
   const [loaded, setLoaded] = React.useState<boolean>(false);

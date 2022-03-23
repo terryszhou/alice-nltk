@@ -1,4 +1,4 @@
-import { Code, Image, Stack, Text } from "@chakra-ui/react";
+import { Code, Stack, Text } from "@chakra-ui/react";
 import * as React from "react";
 import { PageProps } from "../helpers/interfaces";
 import { HeroShell } from "./HeroShell";
@@ -60,7 +60,6 @@ export const VaderChapters = ({ visRef, visible }: PageProps) => {
             key={i}
             title={e.title}
             valueLabel={e.valueLabel} /> ))}
-        {/* <Image src={"/images/alice_chap_vader_sent_graph.png"} /> */}
       </Stack>
     </HeroShell>
   );

@@ -1,15 +1,13 @@
 import { Stack, Text, useColorModeValue as colorMode } from "@chakra-ui/react";
 import * as React from "react";
 
-import { myText, ogText } from "../data/mouseTail";
+import { myText } from "../data/mouseTail";
 import { scroll } from "../helpers/animations";
 import { useAnim } from "../hooks/useAnim";
 
 export const MouseTail = () => {
   const scrollAnim: string | undefined = useAnim(`${scroll} 3s 1.5s forwards`);
-  const [selectedText, setSelectedText] = React.useState<string[]>(myText);
-  // const timer = setTimeout(() => setSelectedText(myText), 3000);
-  // React.useEffect(() => () => clearTimeout(timer),[timer]);
+  const selectedText: string[] = myText;
   const pinkShadow: string = colorMode("none","drop-shadow(0 0 5px rgb(173,123,223))");
   const purpleShadow: string = colorMode("none","drop-shadow(0 0 5px rgb(159,43,122))");
 
