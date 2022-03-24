@@ -1,6 +1,7 @@
 import * as React from "react";
-import { Box, Code, Stack, Text, Flex, Image, Heading, Button } from "@chakra-ui/react";
+import { Box, Code, Stack, Text, Flex, Image, Heading } from "@chakra-ui/react";
 
+import { AliceButton } from "./AliceButton";
 import { HeroShell } from "./HeroShell";
 import { PageProps } from "../helpers/interfaces";
 
@@ -68,21 +69,10 @@ export const Materials = ({ visRef, visible }: PageProps) => {
         <Text>
           In 1991 it was made available for free by Project Gutenberg. I will be using a slightly modified version of that text for this project, available for download below:
         </Text>
-        <Button
+        <AliceButton
           as={"a"}
-          backgroundColor={"transparent"}
-          border={"1px solid rgb(159,43,122)"}
-          color={"rgb(159,43,122)"}
-          cursor={"pointer"}
-          fontFamily={"var(--chakra-fonts-mono)"}
-          fontSize={13}
           href={"https://s3.us-west-1.amazonaws.com/terryszhou.com/alice.txt"}
-          maxWidth={100}
-          target={"_blank"}
-          _focus={{ boxShadow: "none" }}
-          _hover={{ backgroundColor: "rgb(159,43,122)", color: "white" }}>
-          alice.txt
-        </Button>
+          target={"_blank"} />
         <Text>The following are all the code imports used in this project:</Text>
         <Stack opacity={.8} textAlign={"left"} width={"80%"}>
           <Code children={"import matplotlib.pyplot as plt"} />

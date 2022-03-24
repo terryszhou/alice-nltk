@@ -47,7 +47,7 @@ export const HomeHeading = () => {
             borderRight={"0.25em solid rgba(0,0,0,0)"}
             color={"brand.400"}
             filter={purpleShadow}
-            fontFamily={"Chakra Petch"}
+            fontFamily={"var(--chakra-fonts-petch)"}
             fontSize={{base: "4xl", lg: "6xl"}}
             opacity={"100%"}
             overflow={"hidden"}

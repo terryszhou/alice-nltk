@@ -1,7 +1,8 @@
-import { Button, Stack, Text, useToast } from "@chakra-ui/react";
+import { Stack, Text, useToast } from "@chakra-ui/react";
 import * as React from "react";
 
 import { PageProps } from "../helpers/interfaces";
+import { AliceButton } from "./AliceButton";
 import { HeroShell } from "./HeroShell";
 
 export const ChunkingIntro = ({ visible, visRef }: PageProps) => {
@@ -11,6 +12,19 @@ export const ChunkingIntro = ({ visible, visRef }: PageProps) => {
   React.useEffect(() => {
     visible && setLoaded(true);
   }, [visible]);
+
+  const handleClick: () => void = () => {
+    setEntities(!entities);
+    toast.closeAll();
+    toast({
+      duration: 2000,
+      isClosable: true,
+      status: "success",
+      title: entities
+        ? "Tokens Chunked!"
+        : "Unique Named Entities parsed!",
+      variant: "subtle", });
+  };
 
   return (
     <HeroShell
@@ -32,29 +46,7 @@ export const ChunkingIntro = ({ visible, visRef }: PageProps) => {
         <Text style={{ textIndent: 20 }}>
           However, one of the many quirks of Alice in Wonderland is that nearly all of the characters have common words as names. As such, a bit of manual entry is required to tell NLTK which capital words are simply words, and which are people.
         </Text>
-        <Button
-          backgroundColor={"transparent"}
-          border={"1px solid rgb(159,43,122)"}
-          color={"rgb(159,43,122)"}
-          cursor={"pointer"}
-          fontFamily={"var(--chakra-fonts-mono)"}
-          fontSize={13}
-          maxWidth={100}
-          onClick={() => {
-            setEntities(!entities);
-            toast.closeAll();
-            toast({
-              duration: 2000,
-              isClosable: true,
-              status: "success",
-              title: entities
-                ? "Tokens Chunked!"
-                : "Unique Named Entities parsed!",
-              variant: "subtle", }); }}
-          _focus={{ boxShadow: "none" }}
-          _hover={{ backgroundColor: "rgb(159,43,122)", color: "white" }}>
-          Click Me
-        </Button>
+        <AliceButton onClick={handleClick} />
       </Stack>
       <Stack
         align={"center"}
