@@ -28,14 +28,7 @@ export const AliceButton = ({
       position={"relative"}
       transition={"200ms ease-in-out"}
       target={target}
-      _before={{
-        background: "brand.100",
-        borderRadius: "50%",
-        content: `""`,
-        height: 2,
-        position: "absolute",
-        right: -2,
-        width: 2 }}
+      _active={{ backgroundColor: "brand.400" }}
       _after={{
         position: "absolute",
         clipPath: "polygon(0% 0%, 100% 20%, 100% 80%, 0% 100%)",
@@ -46,6 +39,14 @@ export const AliceButton = ({
         right: -4,
         transition: "200ms ease-in-out",
         zIndex: -1 }}
+      _before={{
+        background: "brand.100",
+        borderRadius: "50%",
+        content: `""`,
+        height: 2,
+        position: "absolute",
+        right: -2,
+        width: 2 }}
       _focus={{ boxShadow: "none" }}
       _hover={{
         backgroundColor: "brand.400",
