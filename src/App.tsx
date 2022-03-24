@@ -1,8 +1,8 @@
 import * as React from "react";
-import { ChakraProvider, theme } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
+import { theme } from "./theme";
 
 import "./App.css";
-import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { Home } from "./components/Home";
 import { AboutNLTK } from "./components/AboutNLTK";
 import { ChunkingIntro } from "./components/ChunkingIntro";
@@ -27,7 +27,6 @@ export const App = () => {
 
   return (
     <ChakraProvider theme={theme}>
-      <ColorModeSwitcher justifySelf="flex-end" />
       <Home visRef={visRef} visible={visible} />
       <AboutNLTK visRef={visRef2} visible={visible2} />
       <Materials visRef={visRef3} visible={visible3} />

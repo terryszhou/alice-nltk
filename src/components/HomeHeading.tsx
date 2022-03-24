@@ -45,7 +45,7 @@ export const HomeHeading = () => {
           <Text
             animation={typeWriterAnim}
             borderRight={"0.25em solid rgba(0,0,0,0)"}
-            color={"rgb(159,43,122)"}
+            color={"brand.400"}
             filter={purpleShadow}
             fontFamily={"Chakra Petch"}
             fontSize={{base: "4xl", lg: "6xl"}}

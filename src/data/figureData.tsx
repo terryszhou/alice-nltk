@@ -14,7 +14,7 @@ export const figureDataOne: figureDataProps[] = [
   {
     fig: "/images/alice_chap_sent_count_graph.png",
     title: "Sentence Count Per Chapter",
-    fillColor: "#993b62",
+    fillColor: "#ae2e74",
     valueLabel: "sentences",
     data: [
       {
@@ -153,7 +153,7 @@ export const figureDataTwo: figureDataProps[] = [
   {
     fig: "/images/alice_compound_graph.png",
     title: "Mean Compound Sentiment Scores",
-    fillColor: "#993b62",
+    fillColor: "#9c85a4",
     valueLabel: "compound score",
     data: [
       {

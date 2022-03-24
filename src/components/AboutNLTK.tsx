@@ -41,7 +41,6 @@ export const AboutNLTK = ({ visRef, visible }: PageProps) => {
             {aboutNLTKData.map((e, i) => (
               <ListItem
                 alignItems={"center"}
-                color={colorMode("rgba(44,44,44,0.8)","rgba(180,180,180,0.8)")}
                 display={"flex"}
                 fontFamily={"var(--chakra-fonts-nunito)"}
                 key={i}>
