@@ -30,7 +30,7 @@ export const HeroShell = ({
         <Stack flex={1} spacing={{ base: 5, md: 10 }} position={"relative"}>
           <Stack position={"relative"} spacing={3}>
             <Heading
-              fontFamily={"var(--chakra-fonts-mono)"}
+              fontFamily={"var(--chakra-fonts-nunito)"}
               fontSize={{ base: 'lg', sm: 'xl', md: "2xl" }}
               fontWeight={"bold"}>
               {title}

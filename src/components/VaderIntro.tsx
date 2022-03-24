@@ -27,11 +27,11 @@ export const VaderIntro = ({ visRef, visible }: PageProps) => {
           <Code children={'sid = SentimentIntensityAnalyzer()'} />
           <Code children={'compound_scores = []'} />
           <Code children={'for sentence in alice_sentences:'} />
-          <Code children={'compound_scores.append((sentence.replace("\n", " "),'} style={{ textIndent: 20 }} />
+          <Code children={'compound_scores.append((sentence.replace("\\n", " "),'} style={{ textIndent: 20 }} />
           <Code children={'sid.polarity_scores(sentence)["compound"],'} style={{ textIndent: 20 }} />
           <Code children={'sid.polarity_scores(sentence)["pos"],'} style={{ textIndent: 20 }} />
           <Code children={'sid.polarity_scores(sentence)["neg"],'} style={{ textIndent: 20 }} />
-          <Code children={'sid.polarity_scores(sentence)["neu"],'} style={{ textIndent: 20 }} />
+          <Code children={'sid.polarity_scores(sentence)["neu"]'} style={{ textIndent: 20 }} />
         </Stack>
         <Text>
           The result is a value between for -1 and 1, with anything between -0.5 and 0.5 considered emotionally neutral.
@@ -63,7 +63,7 @@ export const VaderIntro = ({ visRef, visible }: PageProps) => {
           The most positive sentence:
         </Heading>
         <Text as={"cite"} style={{ textIndent: 20 }}>
-          'But her sister sat still just as she left her, leaning her head on her hand, watching the setting sun, and thinking of little Alice and all her wonderful Adventures, till she too began dreaming after a fashion, and this was her dream:—  First, she dreamed of little Alice herself, and once again the tiny hands were clasped upon her knee, and the bright eager eyes were looking up into hers—she could hear the very tones of her voice, and see that queer little toss of her head to keep back the wandering hair that _would_ always get into her eyes—and still as she listened, or seemed to listen, the whole place around her became alive with the strange creatures of her little sister’s dream.'
+          'But her sister sat still just as she left her, leaning her head on her hand, watching the setting sun, and thinking of little Alice and all her wonderful Adventures, till she too began dreaming after a fashion, and this was her dream:—  First, she dreamed of little Alice herself, and once again the tiny hands were clasped upon her knee, and the bright eager eyes were looking up into hers—she could hear the very tones of her voice, and see that queer little toss of her head to keep back the wandering hair that would always get into her eyes—and still as she listened, or seemed to listen, the whole place around her became alive with the strange creatures of her little sister’s dream.'
         </Text>
         <Text>Compound Score: 0.9745</Text>
       </Stack>

@@ -13,8 +13,8 @@ export const MouseTail = () => {
     <Stack
       align={"left"}
       animation={scrollAnim}
-      fontFamily={"var(--chakra-fonts-mono)"}
-      fontSize={"md"}
+      fontFamily={"var(--chakra-fonts-nunito)"}
+      fontSize={"lg"}
       maxHeight={0}
       overflow={"hidden"}
       spacing={0}>
